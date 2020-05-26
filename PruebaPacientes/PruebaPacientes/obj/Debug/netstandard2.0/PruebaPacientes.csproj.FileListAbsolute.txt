@@ -1,0 +1,9 @@
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\bin\Debug\netstandard2.0\PruebaPacientes.deps.json
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\bin\Debug\netstandard2.0\PruebaPacientes.dll
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\bin\Debug\netstandard2.0\PruebaPacientes.pdb
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.csprojAssemblyReference.cache
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.csproj.CoreCompileInputs.cache
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.AssemblyInfoInputs.cache
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.AssemblyInfo.cs
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.dll
+C:\Users\lucia\source\repos\PruebaPacientes\PruebaPacientes\obj\Debug\netstandard2.0\PruebaPacientes.pdb

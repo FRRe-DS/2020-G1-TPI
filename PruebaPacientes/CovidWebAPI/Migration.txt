@@ -1,0 +1,2 @@
+﻿add-migration Segunda -context Datacontext -Project Data   
+update-database -context  Datacontext -Project Data   

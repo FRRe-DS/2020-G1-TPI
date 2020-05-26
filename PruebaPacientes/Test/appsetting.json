@@ -1,0 +1,11 @@
+﻿{
+  "Data": {
+    "ConnectionStrings": {
+      "defaultConnection": "Server=LAPTOP-THAUSFJU\\SQL2019;DataBase=COVID;Integrated Security=True"
+    }
+  }
+
+
+
+  //:ConnectionStrings:defaultConnection"
+}
