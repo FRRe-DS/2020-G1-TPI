@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="estilosIF.css" rel="stylesheet"/>
+    <title>Informar Síntomas</title>
+</head>
+<body>
+    <form>
+        <div id="formulario">
+            <h1>Formulario de notificación de Coronavirus</h1>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <div class="control">
+                    <label>Apellido</label>
+                    <input class="input is-info" type="text" id="apellido" name="apellido" placeholder="Apellido" required/>
+                    <label>Nombre</label>
+                    <input class="input is-info" type="text" id="nombre" name="nombre" placeholder="Nombre" required/>
+                    <label>DNI</label>
+                    <input class="input is-info" type="int" id="dni" name="dni" placeholder="Dni" required/>
+                </div>  
+                <div>
+                    <label>Fecha de Nacimiento</label>
+                    <input class="input is-info" type="date" name="fechaNacimiento" value="FechaIngreso" required/>
+                    <label>Edad</label>
+                    <input class="input is-info" type="int" id="edad" name="edad" placeholder="Edad" required/>
+                    <label>Sexo</label>
+                    <select id="sexo">
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Correo Electrónico</label>
+                    <input class="input is-info" type="email" id="correo" name="correo" placeholder="Correo"/>
+                    <label>Teléfono</label>
+                    <input class="input is-info" type="tel" id="telefono" name="telefono" placeholder="Telefono" required/>
+                </div>             
+                <div>
+                    <label>Dirección</label>
+                    <input class="input is-info" type="text" id="direccion" name="direccion" placeholder="Direccion" required/>
+                    <label>Localidad</label> 
+                    <input class="input is-info" type="text" id="localidad" name="localidad" placeholder="Localidad" required/>
+                </div>
+               <div>
+                    <label>Provincia</label>
+                    <input class="input is-info" type="text" id="provincia" name="provincia" placeholder="Provincia" required/>
+                    <label>Código Postal</label>
+                    <input class="input is-info" type="int" id="CP" name="CP" placeholder="CP" required/>
+               </div>
+            </fieldset>
+           <fieldset>
+               <legend>Antecedentes Epidemiológicos</legend>
+                    <label class="negrita">Ocupaciones</label>
+                    <br/>
+                    <br/>
+                    <div class="margen">
+                        <input class="input is-info" type="radio" name="Ocupacion" value="trabajadorAtencionSalud"> Trabajador de atención de la salud
+                        <input class="input is-info" type="radio" name="Ocupacion" value="trabajadorLaboratorio"> Trabajador de laboratorio
+                        <input class="input is-info" type="radio" name="Ocupacion" value="trabajaConAnimales"> Trabaja con animales
+                    </div>
+                    <br/>
+                    <label class="negrita">Antecedentes de vacunación</label>
+                    <div class="margen">
+                        <input class="input is-info" type="radio" name="antigripal" value="Antigripal"/> Antigripal
+                        <label  id="fechaAntigripal">Fecha</label>
+                        <input class="input is-info" type="date" name="fecha" value="Fecha"/>
+                    </div>
+                    <br/>
+                    <label class="negrita" >Viajes y otras exposiciones de riesgo</label>
+                    <div class="margen">
+                        <p>¿Ha viajado o recidido en una zona de riesgo conocida fuera del País en los últimos 14 días previos al inicio de síntomas?</p>
+                        <input type="radio" name="SiNo" value="Si"/> Si
+                        <input type="radio" name="SiNo" value="No"/> No
+                    </div>
+                    <div>
+                        <label>¿Dónde?</label>
+                        <input class="input is-info" type="text" id="paísCiudad" name="PaísCiudad" placeholder="País y Ciudad"/>
+                        <label id="fechaAntigripal">Desde</label>
+                        <input class="input is-info" type="date" name="desde" value="Desde"/>
+                        <label id="fechaAntigripal">Hasta</label>
+                        <input class="input is-info" type="date" name="hasta" value="Hasta"/>
+                    </div>
+                    <div target="_blank">
+                        <label>Viajó en:</label>
+                        <input class="input is-info" type="radio" name="opcionViaje" value="avion"> Avión
+                        <input class="input is-info" type="radio" name="opcionViaje" value="barco"> Barco
+                        <input class="input is-info" type="radio" name="opcionViaje" value="omnibus"> Omnibus
+                    </div>
+                    <div>
+                        <label>Fecha de ingreso al País:</label>
+                        <input class="input is-info" type="date" name="fechaIngreso" value="FechaIngreso"/>
+                        <label>Compañia:</label>
+                        <input class="input is-info" type="text" id="Compañia" name="Compañia" placeholder="Compañia"/> 
+                    </div>
+                    <div class="margen">
+                        <p>¿Ha viajado o recidido en una zona dentro del país (distinto del domicilio) en los ultimos 14 días previos al inicio de síntomas?</p>
+                            <div class="control">
+                                <label class="radio">
+                                <input class="input is-info" type="radio" name="answer">Si</label>
+                                <label class="radio">
+                                <input class="input is-info" type="radio" name="answer">No</label>
+                          </div>
+                    </div>
+                    <div>
+                        <label>¿Dónde?</label>
+                        <input class="input is-info" type="text" id="domicilioEnQueEstuvo" name="Domicilio" placeholder="Domicilio"/>
+                        <label id="fechaAntigripal">Desde</label>
+                        <input class="input is-info" type="date" name="desde" value="Desde"/>
+                        <label id="fechaAntigripal">Hasta</label>
+                        <input class="input is-info" type="date" name="hasta" value="Hasta"/>
+                    </div>
+            </fieldset>
+            <fieldset>
+                <legend>Enfermedades previas / Comorbilidades</legend>
+                <div class="margen">
+                    <input class="input is-info" type="radio" name="Presenta" value="Si"/> Presenta
+                    <input class="input is-info" type="radio" name="Presenta" value="No"/> No Presenta
+                </div>
+                <div id="enfermedades1" class="checkbox">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="inmunosupresiónCongenita"/> Inmunosupresión congénita o adquirida
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="diabetes"/> Diabetes
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="obesidad"/> Obesidad
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="embarazo"/> Embarazo
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="puerperio"/> Puerperio
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="prematernidad"/> Prematernidad
+                        <input class="input is-info" type="text" id="semanasPrematernidad" name="semanasPrematernidad" placeholder="Semanas"/> 
+                    </div>
+                </div>
+                <div id="enfermedades2">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="gramosAlNacer"/> Bajo peso al nacer
+                        <input class="input is-info" type="text" id="gramosAlNacer" name="gramosAlNacer" placeholder="gr"/> 
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="enfNeurológica"/> Enfermedad neurológica
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="enfHepática"/> Enfermedad hepática
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="enfRenal"/> Enfermedad Renal Crónica
+                    </div>    
+                    <div>
+                        <input class="input is-info" type="checkbox" name="hipertensiónArterial"/> Hipertensión arterial
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="enfOncológica"/> Enfermedad oncológica
+                    </div>
+                    
+                </div>
+                <div id="enfermedades3">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="bronquiolitisPrevia"/> Bronquiolitis previa
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="nacPrevia"/> N.A.C previa
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="epoc"/> EPOC
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="asma"/> Asma
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="tuberculosis"/> Tuberculosis
+                    </div>
+                    <div>   
+                        <input class="input is-info" type="checkbox" name="fumador"/> Fumador
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="ninguna"/> Ninguna de las anteriores
+                    </div>
+                </div>
+                <label>Otros</label>
+                <input class="input is-info" type="text" id="otraEnfermedad" name="otraEnfermedad" placeholder="Especificar"/> 
+            </fieldset>
+            <fieldset>
+                <legend>Signos y Síntomas</legend>
+                <div id="sintomas1">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="fiebre"/> Fiebre (≥ 38ºC)
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="taquipneaDisnea"/> Taquipnea / Disnea
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="diarrea"/> Diarrea
+                    </div>
+                    
+                </div>
+                <div id="sintomas2">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="malestarGeneral"/> Malestar general
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="tos"/> Tos
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="vomitos"/> Vómitos
+                    </div>
+                </div>
+                <div id="sintomas3">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="artralgias"/> Artralgias
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="InsuficienciaRespiratoria"/> Insuficiencia respiratoria
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="dolorAbdominal"/> Dolor abdominal
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="dolorToracico"/> Dolor torácico
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+                <div id="sintomas4">
+                    <div>
+                        <input class="input is-info" type="checkbox" name="dolorGarganta"/> Dolor de garganta
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="rechazoAlimento"/> Rechazo de alimento
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="irritabilidadConfusion"/> Irritabilidad / Confusión
+                    </div>
+                    <div>
+                        <input class="input is-info" type="checkbox" name="convulsiones"/> Convulsiones
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+                <label>Otros</label>
+                <input class="input is-info" type="text" id="otroSintoma" name="otroSintoma" placeholder="Especificar"/>
+            </fieldset>
+            <div id="boton">
+                <input class="input is-info" type="submit" value="Enviar Formulario" id="botonEnviar" />
+            </div>
+                
+        </div>
+        
+    </form>
+</body>
+</html>
