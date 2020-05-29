@@ -1,0 +1,65 @@
+﻿<!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/estilosIndex2.css" />
+    <link rel="stylesheet" href="~/css/estilosIF.css"/>
+</head>
+<body background="/images/covid.PNG">
+    <header>
+        <div id="secciones">
+            <ul>
+                <li><a href="/#estadoPandemia">Estado de la pandemia</a></li>
+                <li><a href="/#recomendaciones">Recomendaciones</a></li>
+                <li><a href="/#informesDiarios">Informes diarios</a></li>
+                <li><a href="/#preguntasFrecuentes">Preguntas frecuentes</a></li>
+            </ul>
+            <a href="https://www.google.com/" id="botonCR">Consultar resultado</a>
+            <a href="/Formulario/ReportarSintomas" id="botonRS">Reportar síntomas</a>
+        </div>
+        <h1>CORONAVIRUS</h1>
+    </header>
+
+    @RenderBody()
+
+    <footer id="footer">
+        <div>
+            <h1 id="titulo1">Teléfonos Útiles</h1>
+        </div>
+        <h3>Información sobre el coronavirus, recomendaciones del Ministerio de Salud Pública y medidas de prevención.</h3>
+        <br />
+        <div class="gridF">
+            <div class="elementF">
+                <div class="elementTitle">Reportes</div>
+                <hr />
+                <h5><a href="tel:" +0800 444 0829>0800 444 0829</a></h5>
+                <h5>Para reportar casos sospechosos (aparición de síntomas), contactos estrechos y notificar regresos de viajes internacionales.</h5>
+                <buttom id="botonLC">LLAMAR</buttom>
+            </div>
+            <div class="elementF">
+                <div class="elementTitle">Emergencias</div>
+                <hr />
+                <h5><a href="tel:" +107>107</a></h5>
+                <h5>Emergencias médicas</h5>
+                <h5><a href="tel:" +911>911</a></h5>
+                <h5>Para denunciar si personas no cumplen con el protocolo de aislamiento soocial obligatorio.</h5>
+            </div>
+            <div class="elementF">
+                <div class="elementTitle">Whatsapp </div>
+                <hr />
+                <h5><a href="tel:" +541162730000>1162730000</a></h5>
+                <h5>Para recibir información oficial y confiable enviá por whatsapp el mensaje CHACO SALUD y seguí los pasos que indica</h5>
+                <buttom id="botonLC">CONSULTAR</buttom>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

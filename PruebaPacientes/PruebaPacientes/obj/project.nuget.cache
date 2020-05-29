@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "0TmZ1nowexE1l3PjlAA31oyd+1lILFUFsXd1a7zMSD/PZnq09Mc8cNRMFTBqY72xdwsiwwN8S+YGVv1arVrmbA==",
+  "success": true,
+  "projectFilePath": "F:\\DACS\\TPI Covid\\2020-G1-TPI\\PruebaPacientes\\PruebaPacientes\\Modelo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\carlo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\carlo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
