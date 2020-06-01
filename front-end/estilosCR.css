@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+#body {
+    display: flex;
+    min-height: 100vh;
+}
+#caja {
+    margin-top: 100px;
+}
+#caja2 {
+    width: 60%;
+    margin: auto;
+}
+form {
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    background-color: #D5D5D5;
+    padding: 30px;
+    border: 1px solid #151A61;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+}
+h2 {
+    font-size: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: black;
+    font-size: 22px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: space-around;
+    height: auto;
+}
+.botones {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    margin: 0px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border:none;
+    margin: auto;
+}
+.botones:hover {
+    color: #90E6F3;
+}
+#titulo {
+    font-size:19px;
+}
+
+input {
+    display: block;
+    padding: 5px;
+    width: 100%;
+    margin: 20px 0;
+    margin-top: 5px;
+    font-size: 15px;
+    width: 100%;
+    align-items: center;
+}
+/*
+.boton1 {
+    width: 100px;
+    height: 40px;
+    padding: 2px;
+    font-size: 18px;
+    margin: 0px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    border:none;
+    align-items: left;
+}
+.boton2 {
+    width: 100px;
+    height: 40px;
+    padding: 2px;
+    font-size: 18px;
+    margin: 0px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    border:none;
+    align-items: right;
+}
+.boton1:hover, .boton2:hover{
+    color: #90E6F3;
+}
+*/
