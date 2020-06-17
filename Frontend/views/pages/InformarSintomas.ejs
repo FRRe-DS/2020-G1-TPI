@@ -1,0 +1,474 @@
+<link rel="stylesheet" href="/styles/estilosIF.css">
+<div id="app">
+        <form id="formulario" @submit.prevent="enviar">
+            <h2>Formulario de notificación de Coronavirus</h2>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <div>
+                    <div class="field">
+                        <label class="label">Apellido</label>
+                        <div class="control">
+                            <input v-model="apellido" class="input" type="text" placeholder="Apellido">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nombre</label>
+                        <div class="control">
+                            <input v-model="nombre" class="input" type="text" placeholder="Nombre">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">DNI</label>
+                        <div class="control">
+                            <input v-model="dni" class="input" type="number" placeholder="">
+                        </div>
+                    </div>
+                </div>  
+                <div>
+                    <div class="field">
+                        <label class="label">Fecha de nacimiento</label>
+                        <div class="control">
+                            <input v-model="fechaNacimiento" class="input" type="date" value="fechaNacimiento">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Edad</label>
+                        <div class="control">
+                            <input v-model="edad" class="input" type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="">Sexo</label>
+                        <div class="control">
+                          <select v-model='sexo'>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="field">
+                        <label class="label">Correo electronico</label>
+                        <div class="control">
+                            <input v-model="email" class="input" type="email" placeholder="example@example.com">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Telefono</label>
+                        <div class="control">
+                            <input v-model="telefono" class="input" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!-- Direccion (Calle|NroCalle|Dpto|NroDpto|Piso|LocalidadId|Localidad|Provincia) -->
+                <!-- Poner en formato direccion como tenemos definido en la BD-->
+                <div class="field">
+                    <label class="label">Dirección ### CORREGIR</label>
+                    <div class="control">
+                        <input v-model="direccion" class="input" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="">Provincia</label>
+                    <div class="control">
+                      <select v-model="provincia" class="form-control" id="provincia" @click='mostrar'>
+                        <option v-for="(provincia,index) in provincias">{{provincias[index].nombre}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Localidad</label>
+                    <div class="control">
+                        <select v-model="localidad" class="form-control" id="localidad" @click='mostrar'>
+                          <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
+                      </select>
+                      </div>
+                </div>
+                <!-- ##### CORREGIR ######-->
+                <div class="field">
+                    <label class="label">Codigo Postal ### CP ya esta dentro de la localidad</label>
+                    <div class="control">
+                        <input v-model="cp" class="input" type="text" placeholder="">
+                    </div>
+                </div>
+            </fieldset>
+
+
+
+
+
+            <fieldset>
+               <legend>Antecedentes Epidemiológicos</legend> 
+
+                    <label class="negrita">Ocupaciones</label>
+                    <br/>
+                    <br/>
+                    <div class="margen">
+                        <div class="field">
+                            <div class="control">
+                                <!-- Modificar los values de los radio, por los valores que toma en la BD-->
+                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajadorAtencionSalud"> Trabajador de atención de la salud
+                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajadorLaboratorio"> Trabajador de laboratorio
+                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajaConAnimales"> Trabaja con animales
+                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="otro"> Otro
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <label class="negrita">Antecedentes de vacunación</label>
+                    <div class="margen">
+                        <div class="field">
+                            <div class="control">
+                                <input v-model="TieneVacunaAntiGripal" class="radio" type="radio" name="TieneVacunaAntiGripal" value="TieneVacunaAntiGripal"/> Antigripal
+                                <label id="FechaDeVacunacion">Fecha: </label>
+                                <input v-model="FechaDeVacunacion" class="input" type="date" value="FechaDeVacunacion">
+                                <label id="FechaDeVencimientoDeLaVacuna">Vencimiento: </label>
+                                <input v-model="FechaDeVencimientoDeLaVacuna" class="input" type="date" value="FechaDeVencimientoDeLaVacuna">
+                            </div>
+                        </div>     
+                    </div>
+
+                    <br/>
+
+                    <label class="negrita" >Viajes y otras exposiciones de riesgo</label>
+                    <div class="margen">
+                        <div class="field">
+                            <div class="control">
+                                <p>¿Ha viajado o recidido en una zona de riesgo conocida fuera del País en los últimos 14 días previos al inicio de síntomas?</p>
+                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value="True"> Si
+                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value="False"> No
+
+                                <br>
+                                <p>¿Dónde?</p>
+                                <label class="label">Pais donde estuvo: </label>
+                                <input v-model="PaisEnQueEstuvo" class="input" type="text" placeholder="País">
+                                <label class="label">Ciudad: </label>
+                                <input v-model="CiudadDelPaisEnQueEstuvo" class="input" type="text" placeholder="Ciudad">
+                                <br>
+                                <label id="fechaPaisDesde">Desde</label>
+                                <input v-model="fechaPaisDesde" class="input" type="date" value="fechaPaisDesde">
+                                <label id="fechaPaisHasta">Hasta</label>
+                                <input v-model="fechaPaisHasta" class="input" type="date" value="fechaPaisHasta">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div target="_blank">
+                        <label>Viajó en:</label>
+                        <!-- Modificar los values de los radio, por los valores que toma en la BD-->
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="avion"> Avión
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="barco"> Barco
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="omnibus"> Omnibus
+                    </div>
+                    <div>
+                        <label>Fecha de ingreso al País:</label>
+                        <input v-model="fechaIngreso" class="input" type="date" value="fechaIngreso">
+                        <label>Compañia:</label>
+                        <input v-model="compania" class="input" type="text" placeholder="Compañia">
+                    </div>
+
+
+                    <div class="margen">
+                        <p>¿Ha viajado o recidido en una zona dentro del país (distinto del domicilio) en los ultimos 14 días previos al inicio de síntomas?</p>
+                            <div class="control">
+                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="True"> Si
+                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="False"> No
+                            </div>
+                        <!-- Poner en formato direccion como tenemos definido en la BD-->
+                        <label>¿Dónde? ## Hay que formatear la direccion como tenemos definido en la BD</label>
+                        <input v-model="domicilioEnQueEstuvo" class="input" type="text" placeholder="Domicilio">
+                        <label id="fechaDesde">Desde</label>
+                        <input v-model="fechaDesde" class="input" type="date" value="fechaDesde">
+                        <label id="fechaHasta">Hasta</label>
+                        <input v-model="fechaHasta" class="input" type="date" value="fechaHasta">
+                    </div>
+            </fieldset>
+
+
+
+
+
+            <fieldset>
+                <legend>Enfermedades previas / Comorbilidades</legend>
+                <div class="margen">
+                    <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="true"> Presenta
+                    <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="false"> No Presenta
+                </div>
+
+                <div id="enfermedades1" class="checkbox">
+                        <input type="checkbox" id="InmunoSupresionCongenitaOAdquirida" v-model="InmunoSupresionCongenitaOAdquirida"> Inmunosupresión congénita o adquirida
+                        <br>
+                        <input type="checkbox" id="Diabetes" v-model="Diabetes"> Diabetes
+                        <br>
+                        <input type="checkbox" id="Obesidad" v-model="Obesidad"> Obesidad
+                        <br>
+                        <input type="checkbox" id="Embarazo" v-model="Embarazo"> Embarazo
+                        <br>
+                        <input type="checkbox" id="Puerperio" v-model="Puerperio"> Puerperio
+                        <br>
+                        <input type="checkbox" id="Prematuridad" v-model="Prematuridad"> Prematernidad
+                        <input type="text" id="SemanasDePrematuridad" name="SemanasDePrematuridad" placeholder="Semanas"/> <!-- Corregir input a Vue-->
+                        <br>
+                </div>
+
+                <div id="enfermedades2">
+                        <input type="checkbox" id="BajoPesoAlNacer" v-model="BajoPesoAlNacer">Bajo peso al nacer
+                        <input type="text" id="CantidadPesoAlNacer" name="CantidadPesoAlNacer" placeholder="gr"/> <!-- Corregir input a Vue-->
+                        <br>
+                        <input type="checkbox" id="EnfermedadNeurologica" v-model="EnfermedadNeurologica">Enfermedad neurológica
+                        <br>
+                        <input type="checkbox" id="EnfermedadHepatica" v-model="EnfermedadHepatica"> Enfermedad hepática
+                        <br>
+                        <input type="checkbox" id="EnfermedadRenalCronica" v-model="EnfermedadRenalCronica"> Enfermedad Renal Crónica
+                        <br>
+                        <input type="checkbox" id="HipertensionArterial" v-model="HipertensionArterial"> Hipertensión arterial
+                        <br>
+                        <input type="checkbox" id="EnfermedadOncologica" v-model="EnfermedadOncologica">Enfermedad oncológica
+                        <br>
+                </div>
+
+                <div id="enfermedades3">
+                        <input type="checkbox" id="BronquitisPrevia" v-model="BronquitisPrevia"> Bronquiolitis previa
+                        <br>
+                        <input type="checkbox" id="NAC_Previa" v-model="NAC_Previa"> N.A.C previa
+                        <br>
+                        <input type="checkbox" id="EPOC" v-model="EPOC"> EPOC
+                        <br>
+                        <input type="checkbox" id="Asma" v-model="Asma">Asma
+                        <br>
+                        <input type="checkbox" id="Tuberculosis" v-model="Tuberculosis">Tuberculosis
+                        <br>
+                        <input type="checkbox" id="Fumador" v-model="Fumador">Fumador
+                        <br>
+                        <!-- Esta no iria, ya que al comienzo se pregunta si presenta o no-->
+                        <input type="checkbox" id="ninguna"/> Ninguna de las anteriores
+                        <br>
+                </div>
+
+                <label>Otros</label>
+                <input type="text" id="OtrasDetalle" name="OtrasDetalle" placeholder="Especificar"/> <!-- Corregir input a Vue-->
+
+            </fieldset>
+
+
+
+
+
+            <fieldset>
+                <legend>Signos y Síntomas</legend>
+                <div id="stextomas1">
+                        <input type="checkbox" id="FiebreMayorA38" v-model="FiebreMayorA38">Fiebre (≥ 38ºC)
+                        <br>
+                        <input type="checkbox" id="Taquipnea_Disnea" v-model="Taquipnea_Disnea">Taquipnea / Disnea
+                        <br>
+                        <input type="checkbox" id="Diarrea" v-model="Diarrea">Diarrea
+                        <br>
+                </div>
+
+                <div id="stextomas2">
+                        <input type="checkbox" id="MalestarEnGenerl" v-model="MalestarEnGenerl">Malestar general
+                        <br>
+                        <input type="checkbox" id="Tos" v-model="Tos">Tos
+                        <br>
+                        <input type="checkbox" id="Vomitos" v-model="Vomitos">Vómitos
+                        <br>
+                </div>
+
+                <div id="stextomas3">
+                        <input type="checkbox" id="Artralgias" v-model="Artralgias">Artralgias
+                        <br>
+                        <input type="checkbox" id="InsuficienciaRespiratoria" v-model="InsuficienciaRespiratoria">Insuficiencia respiratoria
+                        <br>
+                        <input type="checkbox" id="DolorAbdominal" v-model="DolorAbdominal">Dolor abdominal
+                        <br>
+                        <input type="checkbox" id="DolorToracico" v-model="DolorToracico">Dolor torácico
+                        <br>
+                </div>
+
+                <div id="stextomas4">
+                        <input type="checkbox" id="DolorDeGarganta" v-model="DolorDeGarganta">Dolor de garganta
+                    </div>
+                    <div>
+                        <input type="checkbox" id="RechazoAlAlimento" v-model="RechazoAlAlimento">Rechazo de alimento
+                    </div>
+                    <div>
+                        <input type="checkbox" id="IrritabilidadConfusion" v-model="IrritabilidadConfusion"> Irritabilidad / Confusión
+                    <div>
+                        <input type="checkbox" id="Convulsiones" v-model="Convulsiones">Convulsiones
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
+
+
+                <label>Otros</label>
+                <input type="text" id="OtrosDetalleSintomas" name="OtrosDetalleSintomas" placeholder="Especificar"/>
+            </fieldset>
+
+
+
+
+
+            <div id="boton">
+                <input type="submit" value="Enviar Formulario" id="botonEnviar" @onclick="enviar"/>
+            </div>
+                
+        </form>
+        
+    </div>
+
+<script>
+    const vue = new Vue({
+        el: '#app',
+        data(){
+            return{
+                nombre:'',
+                apellido:'',
+                dni:'',
+                fechaNacimiento:'',
+                edad:'',
+                sexo:'',
+                email:'',
+                telefono:'',
+                cp:'',
+                localidad:'',
+                direccion:'',
+                provincias:[],
+                provincia:'',
+                localidades:[],
+                ocupacion:'',
+                TieneVacunaAntiGripal:'',
+                FechaDeVencimientoDeLaVacuna:'',
+                FechaDeVacunacion:'',
+                SiNo:'',
+                PaisEnQueEstuvo:'',
+                CiudadDelPaisEnQueEstuvo:'',
+                fechaPaisDesde:'',
+                fechaPaisHasta:'',
+                opcionViaje:'',
+                compania:'',
+                fechaIngreso:'',
+                ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas:'',
+                domicilioEnQueEstuvo:'',
+                fechaDesde:'',
+                fechaHasta:'',
+                PresentaEnfermedadesComorbilidades:'',
+                InmunoSupresionCongenitaOAdquirida:'',
+                Diabetes:'',
+                Obesidad:'',
+                Embarazo:'',
+                Puerperio:'',
+                Prematuridad:'',
+                SemanasDePrematuridad:'',
+                BajoPesoAlNacer:'',
+                CantidadPesoAlNacer:'',
+                EnfermedadNeurologica:'',
+                EnfermedadHepatica:'',
+                EnfermedadRenalCronica:'',
+                HipertensionArterial:'',
+                EnfermedadOncologica:'',
+                BronquitisPrevia:'',
+                NAC_Previa:'',
+                EPOC:'',
+                Asma:'',
+                Tuberculosis:'',
+                Fumador:'',
+                OtrasDetalle:'',
+                FiebreMayorA38:'',
+                Taquipnea_Disnea:'',
+                Diarrea:'',
+                MalestarEnGenerl:'',
+                Tos:'',
+                Vomitos:'',
+                Artralgias:'',
+                InsuficienciaRespiratoria:'',
+                DolorAbdominal:'',
+                DolorToracico:'',
+                DolorDeGarganta:'',
+                RechazoAlAlimento:'',
+                IrritabilidadConfusion:'',
+                Convulsiones:'',
+                OtrosDetalleSintomas:'',
+                
+
+                
+            }
+        },
+        created: function(){
+            console.log('Iniciando...')
+            this.get_provincias()
+            this.get_localidades()
+            this.get_api()
+        },
+        methods:{
+            get_api(){
+                axios.get('http://40.118.242.96:12600/api/Provincia/GetAll')
+                .then((response)=>{
+                    console.log(response.data)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            },
+            mostrar(){
+                console.log('provincia: ',provincia.value)
+                console.log('localidad: ',localidad.value)
+            },
+            get_provincias(){
+                console.log('ejecutando get_provincias')
+                axios.get(`http://40.118.242.96:12600/api/Provincia/GetAll`)
+                .then((response)=>{
+                    this.provincias = response.data
+
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            },
+            get_localidades(){
+                axios.get(`http://40.118.242.96:12600/api/Localidad/GetAll`)
+                .then((response)=>{
+                    this.localidades = response.data
+
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            },
+
+
+            enviar(){
+                //Esto es para probar
+                console.log(this.ocupacion,this.TieneVacunaAntiGripal,this.FechaDeVacunacion,this.FechaDeVencimientoDeLaVacuna)
+                console.log('asd',this.SiNo,this.PaisEnQueEstuvo,this.CiudadDelPaisEnQueEstuvo,this.fechaPaisDesde,this.fechaPaisHasta)
+                console.log('asd2',this.opcionViaje,this.compania,this.fechaIngreso,this.ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas)
+                console.log('asd3',this.domicilioEnQueEstuvo,this.fechaDesde,this.fechaHasta)
+                console.log("Enfermedades y Comorbilidades",this.PresentaEnfermedadesComorbilidades,this.InmunoSupresionCongenitaOAdquirida,this.Diabetes)
+                
+                //Esto es lo que funciona
+                /*axios.post(`/ReportarSintomas/Paciente`,{
+                    nombre:this.nombre,
+                    apellido:this.apellido,
+                    dni:this.dni,
+                    fechaNacimiento:this.fechaNacimiento,
+                    edad:this.edad,
+                    sexo:this.sexo,
+                    email:this.email,
+                    telefono:this.telefono,
+                    direccion:this.direccion,
+                })
+                .then((response)=>{
+                    console.log('Elemento creado Paciente: ',response)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+                */
+                
+            }
+        }
+    })
+</script>
