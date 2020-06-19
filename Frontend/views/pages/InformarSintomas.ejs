@@ -7,89 +7,78 @@
                 <div>
                     <div class="field">
                         <label class="label">Apellido</label>
-                        <div class="control">
-                            <input v-model="apellido" class="input" type="text" placeholder="Apellido">
-                        </div>
-                    </div>
-                    <div class="field">
+                        <input v-model="apellido" class="input" type="text" placeholder="Apellido">
+
                         <label class="label">Nombre</label>
-                        <div class="control">
-                            <input v-model="nombre" class="input" type="text" placeholder="Nombre">
-                        </div>
-                    </div>
-                    <div class="field">
+                        <input v-model="nombre" class="input" type="text" placeholder="Nombre">
+
                         <label class="label">DNI</label>
-                        <div class="control">
-                            <input v-model="dni" class="input" type="number" placeholder="">
-                        </div>
-                    </div>
-                </div>  
-                <div>
-                    <div class="field">
-                        <label class="label">Fecha de nacimiento</label>
-                        <div class="control">
-                            <input v-model="fechaNacimiento" class="input" type="date" value="fechaNacimiento">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Edad</label>
-                        <div class="control">
-                            <input v-model="edad" class="input" type="text" placeholder="">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="">Sexo</label>
-                        <div class="control">
-                          <select v-model='sexo'>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                          </select>
-                        </div>
+                        <input v-model.number="dni" class="input" type="number" placeholder="">
+
                     </div>
                 </div>
+
                 <div>
                     <div class="field">
-                        <label class="label">Correo electronico</label>
                         <div class="control">
-                            <input v-model="email" class="input" type="email" placeholder="example@example.com">
+                            <label class="label">Fecha de nacimiento</label>
+                            <input v-model="fechaNacimiento" class="input" type="date" value="fechaNacimiento">
+
+                            <label class="label" for="">Sexo</label>
+                            <select v-model='sexo'>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+
+                            <label class="label">Telefono</label>
+                            <input v-model="telefono" class="input" type="text" placeholder="Teléfono">
                         </div>
                     </div>
-                    <div class="field">
-                        <label class="label">Telefono</label>
+
+                    
+                </div>
+                <div>
+                    <div class="field">    
                         <div class="control">
-                            <input v-model="telefono" class="input" type="text" placeholder="">
+                            <label class="label">Correo electronico</label>
+                            <input v-model="email" class="input" type="email" placeholder="example@example.com">
                         </div>
                     </div>
                 </div>
                 <!-- Direccion (Calle|NroCalle|Dpto|NroDpto|Piso|LocalidadId|Localidad|Provincia) -->
                 <!-- Poner en formato direccion como tenemos definido en la BD-->
+                <label class="negrita">Dirección</label>
+                <br>
+                    <label class="label">Calle</label>
+                    <input v-model="Calle" class="input" type="text" placeholder="Calle">
+                    <label class="label">Número</label>
+                    <input v-model="NroDeCalle" class="input" type="text" placeholder="Número calle">
+                    <label class="label">Depto</label>
+                    <input v-model="Dpto" class="input" type="text" placeholder="">
+                    <label class="label">Piso</label>
+                    <input v-model="Piso" class="input" type="text" placeholder="">
+                    <br>
+                    <br>
+
                 <div class="field">
-                    <label class="label">Dirección ### CORREGIR</label>
+                    
                     <div class="control">
-                        <input v-model="direccion" class="input" type="text" placeholder="">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label" for="">Provincia</label>
-                    <div class="control">
+                        <label class="label" for="">Provincia</label>
                       <select v-model="provincia" class="form-control" id="provincia" @click='mostrar'>
                         <option v-for="(provincia,index) in provincias">{{provincias[index].nombre}}</option>
                     </select>
+
+                    <label class="label">Localidad</label>
+                    <select v-model="localidad" class="form-control" id="localidad" @click='mostrar'>
+                        <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
+                    </select>
                     </div>
                 </div>
+
+                <!-- Ejemplo de estructura, no borrar ↓-->
                 <div class="field">
-                    <label class="label">Localidad</label>
                     <div class="control">
-                        <select v-model="localidad" class="form-control" id="localidad" @click='mostrar'>
-                          <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
-                      </select>
-                      </div>
-                </div>
-                <!-- ##### CORREGIR ######-->
-                <div class="field">
-                    <label class="label">Codigo Postal ### CP ya esta dentro de la localidad</label>
-                    <div class="control">
-                        <input v-model="cp" class="input" type="text" placeholder="">
+
                     </div>
                 </div>
             </fieldset>
@@ -122,11 +111,12 @@
                     <div class="margen">
                         <div class="field">
                             <div class="control">
-                                <input v-model="TieneVacunaAntiGripal" class="radio" type="radio" name="TieneVacunaAntiGripal" value="TieneVacunaAntiGripal"/> Antigripal
+                                <input v-model="TieneVacunaAntiGripal" class="checkbox" type="checkbox" name="TieneVacunaAntiGripal" value="TieneVacunaAntiGripal"/> Antigripal
                                 <label id="FechaDeVacunacion">Fecha: </label>
-                                <input v-model="FechaDeVacunacion" class="input" type="date" value="FechaDeVacunacion">
+                                <input v-model="FechaDeVacunacion" class="input" type="date" value="FechaDeVacunacion" :disabled="TieneVacunaAntiGripal === false">
                                 <label id="FechaDeVencimientoDeLaVacuna">Vencimiento: </label>
-                                <input v-model="FechaDeVencimientoDeLaVacuna" class="input" type="date" value="FechaDeVencimientoDeLaVacuna">
+                                <input v-model="FechaDeVencimientoDeLaVacuna" class="input" type="date" value="FechaDeVencimientoDeLaVacuna" :disabled="TieneVacunaAntiGripal === false">
+                                
                             </div>
                         </div>     
                     </div>
@@ -138,20 +128,20 @@
                         <div class="field">
                             <div class="control">
                                 <p>¿Ha viajado o recidido en una zona de riesgo conocida fuera del País en los últimos 14 días previos al inicio de síntomas?</p>
-                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value="True"> Si
-                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value="False"> No
+                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value=true> Si
+                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value=false> No
 
                                 <br>
                                 <p>¿Dónde?</p>
                                 <label class="label">Pais donde estuvo: </label>
-                                <input v-model="PaisEnQueEstuvo" class="input" type="text" placeholder="País">
+                                <input v-model="PaisEnQueEstuvo" class="input" type="text" placeholder="País" :disabled="SiNo === 'false'">
                                 <label class="label">Ciudad: </label>
-                                <input v-model="CiudadDelPaisEnQueEstuvo" class="input" type="text" placeholder="Ciudad">
+                                <input v-model="CiudadDelPaisEnQueEstuvo" class="input" type="text" placeholder="Ciudad" :disabled="SiNo === 'false'">
                                 <br>
                                 <label id="fechaPaisDesde">Desde</label>
-                                <input v-model="fechaPaisDesde" class="input" type="date" value="fechaPaisDesde">
+                                <input v-model="fechaPaisDesde" class="input" type="date" value="fechaPaisDesde" :disabled="SiNo === 'false'">
                                 <label id="fechaPaisHasta">Hasta</label>
-                                <input v-model="fechaPaisHasta" class="input" type="date" value="fechaPaisHasta">
+                                <input v-model="fechaPaisHasta" class="input" type="date" value="fechaPaisHasta" :disabled="SiNo === 'false'">
                             </div>
                         </div>
                     </div>
@@ -159,31 +149,49 @@
                     <div target="_blank">
                         <label>Viajó en:</label>
                         <!-- Modificar los values de los radio, por los valores que toma en la BD-->
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="avion"> Avión
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="barco"> Barco
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="omnibus"> Omnibus
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="avion" :disabled="SiNo === 'false'"> Avión
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="barco" :disabled="SiNo === 'false'"> Barco
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="omnibus" :disabled="SiNo === 'false'"> Omnibus
                     </div>
                     <div>
                         <label>Fecha de ingreso al País:</label>
-                        <input v-model="fechaIngreso" class="input" type="date" value="fechaIngreso">
+                        <input v-model="fechaIngreso" class="input" type="date" value="fechaIngreso" :disabled="SiNo === 'false'">
                         <label>Compañia:</label>
-                        <input v-model="compania" class="input" type="text" placeholder="Compañia">
+                        <input v-model="compania" class="input" type="text" placeholder="Compañia" :disabled="SiNo === 'false'">
                     </div>
 
 
                     <div class="margen">
                         <p>¿Ha viajado o recidido en una zona dentro del país (distinto del domicilio) en los ultimos 14 días previos al inicio de síntomas?</p>
                             <div class="control">
-                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="True"> Si
-                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="False"> No
+                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="true"> Si
+                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
                             </div>
-                        <!-- Poner en formato direccion como tenemos definido en la BD-->
-                        <label>¿Dónde? ## Hay que formatear la direccion como tenemos definido en la BD</label>
-                        <input v-model="domicilioEnQueEstuvo" class="input" type="text" placeholder="Domicilio">
+                        <!-- Cambiar el v-model de los campos por los del Modelo ↓-->
+                        <label class="label">Calle</label>
+                        <input v-model="Calle" class="input" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <label class="label">Número</label>
+                        <input v-model="NroDeCalle" class="input" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <label class="label">Depto</label>
+                        <input v-model="Dpto" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <label class="label">Piso</label>
+                        <input v-model="Piso" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <br>
+                        <label class="label" for="">Provincia</label>
+                        <select v-model="provincia" class="form-control" id="provincia" @click='mostrar' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                            <option v-for="(provincia,index) in provincias">{{provincias[index].nombre}}</option>
+                        </select>
+
+                        <label class="label">Localidad</label>
+                        <select v-model="localidad" class="form-control" id="localidad" @click='mostrar' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                            <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
+                        </select>
+                        <!-- Cambiar el v-model de los campos por los del Modelo ↑-->
+                        <br>
                         <label id="fechaDesde">Desde</label>
-                        <input v-model="fechaDesde" class="input" type="date" value="fechaDesde">
+                        <input v-model="fechaDesde" class="input" type="date" value="fechaDesde" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label id="fechaHasta">Hasta</label>
-                        <input v-model="fechaHasta" class="input" type="date" value="fechaHasta">
+                        <input v-model="fechaHasta" class="input" type="date" value="fechaHasta" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                     </div>
             </fieldset>
 
@@ -199,49 +207,49 @@
                 </div>
 
                 <div id="enfermedades1" class="checkbox">
-                        <input type="checkbox" id="InmunoSupresionCongenitaOAdquirida" v-model="InmunoSupresionCongenitaOAdquirida"> Inmunosupresión congénita o adquirida
+                        <input type="checkbox" id="InmunoSupresionCongenitaOAdquirida" v-model="InmunoSupresionCongenitaOAdquirida" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Inmunosupresión congénita o adquirida
                         <br>
-                        <input type="checkbox" id="Diabetes" v-model="Diabetes"> Diabetes
+                        <input type="checkbox" id="Diabetes" v-model="Diabetes" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Diabetes
                         <br>
-                        <input type="checkbox" id="Obesidad" v-model="Obesidad"> Obesidad
+                        <input type="checkbox" id="Obesidad" v-model="Obesidad" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Obesidad
                         <br>
-                        <input type="checkbox" id="Embarazo" v-model="Embarazo"> Embarazo
+                        <input type="checkbox" id="Embarazo" v-model="Embarazo" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Embarazo
                         <br>
-                        <input type="checkbox" id="Puerperio" v-model="Puerperio"> Puerperio
+                        <input type="checkbox" id="Puerperio" v-model="Puerperio" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Puerperio
                         <br>
-                        <input type="checkbox" id="Prematuridad" v-model="Prematuridad"> Prematernidad
-                        <input type="text" id="SemanasDePrematuridad" name="SemanasDePrematuridad" placeholder="Semanas"/> <!-- Corregir input a Vue-->
+                        <input type="checkbox" id="Prematuridad" v-model="Prematuridad" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Prematernidad
+                        <input type="text" id="SemanasDePrematuridad" name="SemanasDePrematuridad" placeholder="Semanas" :disabled="!Prematuridad"/> <!-- Corregir input a Vue-->
                         <br>
                 </div>
 
                 <div id="enfermedades2">
-                        <input type="checkbox" id="BajoPesoAlNacer" v-model="BajoPesoAlNacer">Bajo peso al nacer
-                        <input type="text" id="CantidadPesoAlNacer" name="CantidadPesoAlNacer" placeholder="gr"/> <!-- Corregir input a Vue-->
+                        <input type="checkbox" id="BajoPesoAlNacer" v-model="BajoPesoAlNacer" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Bajo peso al nacer
+                        <input type="text" id="CantidadPesoAlNacer" name="CantidadPesoAlNacer" placeholder="gr" :disabled="!BajoPesoAlNacer"/> <!-- Corregir input a Vue-->
                         <br>
-                        <input type="checkbox" id="EnfermedadNeurologica" v-model="EnfermedadNeurologica">Enfermedad neurológica
+                        <input type="checkbox" id="EnfermedadNeurologica" v-model="EnfermedadNeurologica" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Enfermedad neurológica
                         <br>
-                        <input type="checkbox" id="EnfermedadHepatica" v-model="EnfermedadHepatica"> Enfermedad hepática
+                        <input type="checkbox" id="EnfermedadHepatica" v-model="EnfermedadHepatica" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Enfermedad hepática
                         <br>
-                        <input type="checkbox" id="EnfermedadRenalCronica" v-model="EnfermedadRenalCronica"> Enfermedad Renal Crónica
+                        <input type="checkbox" id="EnfermedadRenalCronica" v-model="EnfermedadRenalCronica" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Enfermedad Renal Crónica
                         <br>
-                        <input type="checkbox" id="HipertensionArterial" v-model="HipertensionArterial"> Hipertensión arterial
+                        <input type="checkbox" id="HipertensionArterial" v-model="HipertensionArterial" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Hipertensión arterial
                         <br>
-                        <input type="checkbox" id="EnfermedadOncologica" v-model="EnfermedadOncologica">Enfermedad oncológica
+                        <input type="checkbox" id="EnfermedadOncologica" v-model="EnfermedadOncologica" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Enfermedad oncológica
                         <br>
                 </div>
 
                 <div id="enfermedades3">
-                        <input type="checkbox" id="BronquitisPrevia" v-model="BronquitisPrevia"> Bronquiolitis previa
+                        <input type="checkbox" id="BronquitisPrevia" v-model="BronquitisPrevia" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Bronquiolitis previa
                         <br>
-                        <input type="checkbox" id="NAC_Previa" v-model="NAC_Previa"> N.A.C previa
+                        <input type="checkbox" id="NAC_Previa" v-model="NAC_Previa" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> N.A.C previa
                         <br>
-                        <input type="checkbox" id="EPOC" v-model="EPOC"> EPOC
+                        <input type="checkbox" id="EPOC" v-model="EPOC" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> EPOC
                         <br>
-                        <input type="checkbox" id="Asma" v-model="Asma">Asma
+                        <input type="checkbox" id="Asma" v-model="Asma" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Asma
                         <br>
-                        <input type="checkbox" id="Tuberculosis" v-model="Tuberculosis">Tuberculosis
+                        <input type="checkbox" id="Tuberculosis" v-model="Tuberculosis" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Tuberculosis
                         <br>
-                        <input type="checkbox" id="Fumador" v-model="Fumador">Fumador
+                        <input type="checkbox" id="Fumador" v-model="Fumador" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Fumador
                         <br>
                         <!-- Esta no iria, ya que al comienzo se pregunta si presenta o no-->
                         <input type="checkbox" id="ninguna"/> Ninguna de las anteriores
@@ -249,7 +257,7 @@
                 </div>
 
                 <label>Otros</label>
-                <input type="text" id="OtrasDetalle" name="OtrasDetalle" placeholder="Especificar"/> <!-- Corregir input a Vue-->
+                <input type="text" id="OtrasDetalle" name="OtrasDetalle" placeholder="Especificar" :disabled="PresentaEnfermedadesComorbilidades === 'false'"/> <!-- Corregir input a Vue-->
 
             </fieldset>
 
@@ -340,10 +348,10 @@
                 provincia:'',
                 localidades:[],
                 ocupacion:'',
-                TieneVacunaAntiGripal:'',
+                TieneVacunaAntiGripal:false,
                 FechaDeVencimientoDeLaVacuna:'',
                 FechaDeVacunacion:'',
-                SiNo:'',
+                SiNo:'false',
                 PaisEnQueEstuvo:'',
                 CiudadDelPaisEnQueEstuvo:'',
                 fechaPaisDesde:'',
@@ -351,11 +359,11 @@
                 opcionViaje:'',
                 compania:'',
                 fechaIngreso:'',
-                ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas:'',
+                ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas:'false',
                 domicilioEnQueEstuvo:'',
                 fechaDesde:'',
                 fechaHasta:'',
-                PresentaEnfermedadesComorbilidades:'',
+                PresentaEnfermedadesComorbilidades:'false',
                 InmunoSupresionCongenitaOAdquirida:'',
                 Diabetes:'',
                 Obesidad:'',
@@ -404,6 +412,7 @@
             this.get_api()
         },
         methods:{
+
             get_api(){
                 axios.get('http://40.118.242.96:12600/api/Provincia/GetAll')
                 .then((response)=>{
@@ -414,8 +423,10 @@
                 })
             },
             mostrar(){
-                console.log('provincia: ',provincia.value)
-                console.log('localidad: ',localidad.value)
+                //console.log('provincia: ',provincia.value)
+                //console.log('localidad: ',localidad.value)
+                console.log(SiNo.value)
+                console.log('Estoy en la funcion mostrar')
             },
             get_provincias(){
                 console.log('ejecutando get_provincias')
@@ -442,12 +453,13 @@
 
             enviar(){
                 //Esto es para probar
-                console.log(this.ocupacion,this.TieneVacunaAntiGripal,this.FechaDeVacunacion,this.FechaDeVencimientoDeLaVacuna)
+                /*console.log(this.ocupacion,this.TieneVacunaAntiGripal,this.FechaDeVacunacion,this.FechaDeVencimientoDeLaVacuna)
                 console.log('asd',this.SiNo,this.PaisEnQueEstuvo,this.CiudadDelPaisEnQueEstuvo,this.fechaPaisDesde,this.fechaPaisHasta)
                 console.log('asd2',this.opcionViaje,this.compania,this.fechaIngreso,this.ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas)
                 console.log('asd3',this.domicilioEnQueEstuvo,this.fechaDesde,this.fechaHasta)
                 console.log("Enfermedades y Comorbilidades",this.PresentaEnfermedadesComorbilidades,this.InmunoSupresionCongenitaOAdquirida,this.Diabetes)
-                
+                */
+                console.log(this.SiNo)
                 //Esto es lo que funciona
                 /*axios.post(`/ReportarSintomas/Paciente`,{
                     nombre:this.nombre,
