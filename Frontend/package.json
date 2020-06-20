@@ -14,7 +14,9 @@
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
     "sails-mssql": "^2.1.4",
-    "sails-mysql": "^1.0.1"
+    "sails-mssqlserver": "^0.14.3",
+    "sails-mysql": "^1.0.1",
+    "sails-sqlserver": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "5.16.0"

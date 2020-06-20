@@ -15,10 +15,10 @@ module.exports = {
     FechaDeCreacion:{
       type:'string'
     },
-    Paciente:{ //modelo Uno-Uno
+    /*Paciente:{ //modelo Uno-Uno
       collection:'Paciente',
       via:'owner'
-    },
+    },*/
     /*PacienteId:{
       type:'number',
     },*/

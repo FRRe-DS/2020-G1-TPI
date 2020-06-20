@@ -8,10 +8,6 @@
 module.exports = {
 
   attributes: {
-
-    /*APIUserId:{
-      type:'string',
-    },*/
     Nombre:{
       type: 'string',
       required:true,
@@ -20,19 +16,23 @@ module.exports = {
       type: 'string',
       required:true
     },
-    TipoDeDocumento:{ //Modelo Uno-Muchos
+    /*TipoDeDocumento:{ //Modelo Uno-Muchos
       model:'TipoDeDocumento',
+    },*/
+    TipoDeDocumento:{
+      type:'string',
+      required:true,
     },
     NroDeDocumento:{
-      type:'number',
+      type:'string',
     },
     FechaDeNacimiento:{
       type:'string',
     },
-    Domicilio:{ //Modelo Uno-Uno
+    /*Domicilio:{ //Modelo Uno-Uno
       collection:'Domicilio',
       via:'owner'
-    },
+    },*/
     Telefono:{
       type:'string',
     },
@@ -42,11 +42,17 @@ module.exports = {
     Correo:{
       type:'string',
     },
+    APIUserId:{
+      type:'string',
+    },
+    DomicilioId:{
+      type:'number'
+    },
     //Relacion
-    owner:{
+    /*owner:{
       model:'FormularioParaAnalisis',
       unique:true
-    }
+    }*/
 
   },
 

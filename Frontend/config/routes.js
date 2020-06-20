@@ -27,7 +27,8 @@ module.exports.routes = {
 
   //Formulario
   'POST /ReportarSintomas':'FormularioParaAnalisisController.store',
-  'POST /ReportarSintomas/Paciente': 'PacienteController.store',
+  'POST /ReportarSintomas/Paciente': 'ListaPacienteController.store',
+  'GET /Pacientes': 'ListaPacienteController.list',
 
   //Provincias
   'GET /Provincias':'ProvinciaController.list',

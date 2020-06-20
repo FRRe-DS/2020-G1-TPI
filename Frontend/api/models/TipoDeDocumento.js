@@ -13,10 +13,10 @@ module.exports = {
       defaultsTo: 'dni'
     },
     //Relacion Muchos-Uno
-    pacientes:{
+    /*pacientes:{
       collection:'Paciente',
       via:'TipoDeDocumento'
-    }
+    }*/
   },
 
 };

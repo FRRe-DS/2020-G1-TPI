@@ -5,6 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+
 module.exports = {
   
     store: async function(req,res){
@@ -20,6 +21,12 @@ module.exports = {
 
         let formulario = await Paciente.create(paciente).fetch()
         return res.status(201).json(formulario)
-    }
+    },
+
+    list: async function(req,res){       
+        let pacientes = await ListaPaciente.find()
+
+        return res.json(pacientes)
+    },
 };
 

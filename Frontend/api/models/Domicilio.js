@@ -30,9 +30,9 @@ module.exports = {
       model: 'Localidades'
     },
     //Relacion
-    owner:{
+    /*owner:{
       model:'Paciente',
-    }
+    }*/
   },
 
 };

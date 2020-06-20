@@ -32,7 +32,7 @@ module.exports.datastores = {
   *                                                                          *
   ***************************************************************************/
 
-  default: {
+  /*default: {
 
     /***************************************************************************
     *                                                                          *
@@ -47,11 +47,22 @@ module.exports.datastores = {
     * 3. Then pass it in, along with a connection URL.                         *
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
-    ***************************************************************************/
+    ***************************************************************************
     adapter: 'sails-mysql',
     url: 'mysql://root:1234@localhost:3306/formulario',
 
   },
+  */
+  sqlserver: {
+    adapter: 'sails-sqlserver',
+    url: 'mssql://COVID19:COVID19@40.118.242.96\\UTNSQLEXPRESS/COVID'
+    /*user: 'COVID19',
+    password: 'COVID19',
+    host: '40.118.242.96\UTNSQLEXPRESS', // azure database
+    database: 'COVID'*/
+  }
+
+  
 
 
 };

@@ -46,7 +46,7 @@ module.exports = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    default: {
+    //default: {
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -72,7 +72,11 @@ module.exports = {
       ****************************************************************************/
       // ssl: true,
 
-    },
+    //},
+    sqlserver: {
+      adapter: 'sails-mssqlserver',
+      url: 'mssql://COVID19:COVID19@40.118.242.96\\UTNSQLEXPRESS/COVID',
+    }
 
   },
 
