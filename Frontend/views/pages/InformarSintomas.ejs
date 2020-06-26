@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/styles/estilosIF.css">
+<link rel="stylesheet" href="/styles/local/estilosIF.css">
 <div id="app">
         <form id="formulario" @submit.prevent="enviar">
             <h2>Formulario de notificación de Coronavirus</h2>
@@ -7,13 +7,13 @@
                 <div>
                     <div class="field">
                         <label class="label">Apellido</label>
-                        <input v-model="apellido" class="input" type="text" placeholder="Apellido">
+                        <input v-model="Apellido" class="input" type="text" placeholder="Apellido">
 
                         <label class="label">Nombre</label>
-                        <input v-model="nombre" class="input" type="text" placeholder="Nombre">
+                        <input v-model="Nombre" class="input" type="text" placeholder="Nombre">
 
                         <label class="label">DNI</label>
-                        <input v-model.number="dni" class="input" type="number" placeholder="">
+                        <input v-model="Dni" class="input" type="text" placeholder="">
 
                     </div>
                 </div>
@@ -22,31 +22,29 @@
                     <div class="field">
                         <div class="control">
                             <label class="label">Fecha de nacimiento</label>
-                            <input v-model="fechaNacimiento" class="input" type="date" value="fechaNacimiento">
+                            <input v-model="FechaNacimiento" class="input" type="date" value="fechaNacimiento">
 
                             <label class="label" for="">Sexo</label>
-                            <select v-model='sexo'>
+                            <select v-model='Sexo'>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                             </select>
 
                             <label class="label">Telefono</label>
-                            <input v-model="telefono" class="input" type="text" placeholder="Teléfono">
+                            <input v-model="Telefono" class="input" type="text" placeholder="Teléfono">
                         </div>
-                    </div>
-
-                    
+                    </div>                    
                 </div>
+
                 <div>
                     <div class="field">    
                         <div class="control">
                             <label class="label">Correo electronico</label>
-                            <input v-model="email" class="input" type="email" placeholder="example@example.com">
+                            <input v-model="Email" class="input" type="email" placeholder="example@example.com">
                         </div>
                     </div>
                 </div>
-                <!-- Direccion (Calle|NroCalle|Dpto|NroDpto|Piso|LocalidadId|Localidad|Provincia) -->
-                <!-- Poner en formato direccion como tenemos definido en la BD-->
+        
                 <label class="negrita">Dirección</label>
                 <br>
                     <label class="label">Calle</label>
@@ -61,24 +59,16 @@
                     <br>
 
                 <div class="field">
-                    
                     <div class="control">
                         <label class="label" for="">Provincia</label>
-                      <select v-model="provincia" class="form-control" id="provincia" @click='mostrar'>
-                        <option v-for="(provincia,index) in provincias">{{provincias[index].nombre}}</option>
+                      <select v-model="Provincia" class="form-control" id="provincia" @click=''>
+                        <option v-for="(Provincia,index) in provincias">{{provincias[index].nombre}}</option>
                     </select>
 
                     <label class="label">Localidad</label>
-                    <select v-model="localidad" class="form-control" id="localidad" @click='mostrar'>
-                        <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
+                    <select v-model="Localidad" class="form-control" id="localidad" @click=''>
+                        <option v-for="(Localidad,index) in localidades">{{localidades[index].nombre}}</option>
                     </select>
-                    </div>
-                </div>
-
-                <!-- Ejemplo de estructura, no borrar ↓-->
-                <div class="field">
-                    <div class="control">
-
                     </div>
                 </div>
             </fieldset>
@@ -96,11 +86,10 @@
                     <div class="margen">
                         <div class="field">
                             <div class="control">
-                                <!-- Modificar los values de los radio, por los valores que toma en la BD-->
-                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajadorAtencionSalud"> Trabajador de atención de la salud
-                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajadorLaboratorio"> Trabajador de laboratorio
-                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="trabajaConAnimales"> Trabaja con animales
-                                <input v-model="ocupacion" class="radio" type="radio" name="Ocupacion" value="otro"> Otro
+                                <input v-model="Ocupacion" class="radio" type="radio" name="Ocupacion" value="1"> Trabajador de atención de la salud
+                                <input v-model="Ocupacion" class="radio" type="radio" name="Ocupacion" value="2"> Trabajador de laboratorio
+                                <input v-model="Ocupacion" class="radio" type="radio" name="Ocupacion" value="3"> Trabaja con animales
+                                <input v-model="Ocupacion" class="radio" type="radio" name="Ocupacion" value="0"> Otro
                             </div>
                         </div>
                     </div>
@@ -148,10 +137,10 @@
                     
                     <div target="_blank">
                         <label>Viajó en:</label>
-                        <!-- Modificar los values de los radio, por los valores que toma en la BD-->
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="avion" :disabled="SiNo === 'false'"> Avión
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="barco" :disabled="SiNo === 'false'"> Barco
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="omnibus" :disabled="SiNo === 'false'"> Omnibus
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="1" :disabled="SiNo === 'false'"> Avión
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="2" :disabled="SiNo === 'false'"> Barco
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="3" :disabled="SiNo === 'false'"> Omnibus
+                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="0" :disabled="SiNo === 'false'"> Otro
                     </div>
                     <div>
                         <label>Fecha de ingreso al País:</label>
@@ -167,26 +156,24 @@
                                 <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="true"> Si
                                 <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
                             </div>
-                        <!-- Cambiar el v-model de los campos por los del Modelo ↓-->
                         <label class="label">Calle</label>
-                        <input v-model="Calle" class="input" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Calle1" class="input" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Número</label>
-                        <input v-model="NroDeCalle" class="input" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="NroDeCalle1" class="input" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Depto</label>
-                        <input v-model="Dpto" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Dpto1" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Piso</label>
-                        <input v-model="Piso" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Piso1" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <br>
                         <label class="label" for="">Provincia</label>
-                        <select v-model="provincia" class="form-control" id="provincia" @click='mostrar' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <select v-model="provincia1" class="form-control" id="provincia" @click='' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                             <option v-for="(provincia,index) in provincias">{{provincias[index].nombre}}</option>
                         </select>
 
                         <label class="label">Localidad</label>
-                        <select v-model="localidad" class="form-control" id="localidad" @click='mostrar' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <select v-model="localidad1" class="form-control" id="localidad" @click='' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                             <option v-for="(localidad,index) in localidades">{{localidades[index].nombre}}</option>
                         </select>
-                        <!-- Cambiar el v-model de los campos por los del Modelo ↑-->
                         <br>
                         <label id="fechaDesde">Desde</label>
                         <input v-model="fechaDesde" class="input" type="date" value="fechaDesde" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
@@ -218,13 +205,14 @@
                         <input type="checkbox" id="Puerperio" v-model="Puerperio" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Puerperio
                         <br>
                         <input type="checkbox" id="Prematuridad" v-model="Prematuridad" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Prematernidad
-                        <input type="text" id="SemanasDePrematuridad" name="SemanasDePrematuridad" placeholder="Semanas" :disabled="!Prematuridad"/> <!-- Corregir input a Vue-->
+                        <input v-model="SemanasDePrematuridad" class="input" type="text" placeholder="Semanas" :disabled="!Prematuridad"/>
+                        
                         <br>
                 </div>
 
                 <div id="enfermedades2">
                         <input type="checkbox" id="BajoPesoAlNacer" v-model="BajoPesoAlNacer" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Bajo peso al nacer
-                        <input type="text" id="CantidadPesoAlNacer" name="CantidadPesoAlNacer" placeholder="gr" :disabled="!BajoPesoAlNacer"/> <!-- Corregir input a Vue-->
+                        <input v-model="CantidadPesoAlNacer" class="input" type="text" placeholder="gr" :disabled="!BajoPesoAlNacer"/>
                         <br>
                         <input type="checkbox" id="EnfermedadNeurologica" v-model="EnfermedadNeurologica" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Enfermedad neurológica
                         <br>
@@ -251,14 +239,11 @@
                         <br>
                         <input type="checkbox" id="Fumador" v-model="Fumador" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Fumador
                         <br>
-                        <!-- Esta no iria, ya que al comienzo se pregunta si presenta o no-->
-                        <input type="checkbox" id="ninguna"/> Ninguna de las anteriores
                         <br>
                 </div>
 
                 <label>Otros</label>
-                <input type="text" id="OtrasDetalle" name="OtrasDetalle" placeholder="Especificar" :disabled="PresentaEnfermedadesComorbilidades === 'false'"/> <!-- Corregir input a Vue-->
-
+                <input v-model="OtrasDetalle" class="input" type="text" placeholder="Especificar" :disabled="PresentaEnfermedadesComorbilidades === 'false'">
             </fieldset>
 
 
@@ -313,7 +298,7 @@
 
 
                 <label>Otros</label>
-                <input type="text" id="OtrosDetalleSintomas" name="OtrosDetalleSintomas" placeholder="Especificar"/>
+                <input v-model="OtrosDetalleSintomas" class="input" type="text" placeholder="Especificar">
             </fieldset>
 
 
@@ -329,88 +314,109 @@
     </div>
 
 <script>
+    const config = {
+        headers: {
+            "Content-Type":"application/json",
+            "Access-Control-Allow-Headers" : "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+        },
+    }
+
     const vue = new Vue({
         el: '#app',
         data(){
             return{
-                nombre:'',
-                apellido:'',
-                dni:'',
-                fechaNacimiento:'',
-                edad:'',
-                sexo:'',
-                email:'',
-                telefono:'',
-                cp:'',
-                localidad:'',
-                direccion:'',
+                index:'',
+                Nombre:'',
+                Apellido:'',
+                Dni:'',
+                FechaNacimiento:'',
+                Edad:'',
+                Sexo:'',
+                Email:'',
+                Telefono:'',
+                Cp:'',
+                Localidad:'',
+                Direccion:'',
                 provincias:[],
-                provincia:'',
+                Provincia:'',
                 localidades:[],
-                ocupacion:'',
+                Ocupacion:'',
                 TieneVacunaAntiGripal:false,
                 FechaDeVencimientoDeLaVacuna:'',
                 FechaDeVacunacion:'',
                 SiNo:'false',
-                PaisEnQueEstuvo:'',
-                CiudadDelPaisEnQueEstuvo:'',
+                PaisEnQueEstuvo:' ',
+                CiudadDelPaisEnQueEstuvo:' ',
                 fechaPaisDesde:'',
                 fechaPaisHasta:'',
-                opcionViaje:'',
-                compania:'',
+                opcionViaje:' ',
+                compania:' ',
                 fechaIngreso:'',
                 ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas:'false',
-                domicilioEnQueEstuvo:'',
+                domicilioEnQueEstuvo:' ',
                 fechaDesde:'',
                 fechaHasta:'',
                 PresentaEnfermedadesComorbilidades:'false',
-                InmunoSupresionCongenitaOAdquirida:'',
-                Diabetes:'',
-                Obesidad:'',
-                Embarazo:'',
-                Puerperio:'',
-                Prematuridad:'',
+                InmunoSupresionCongenitaOAdquirida:false,
+                Diabetes:false,
+                Obesidad:false,
+                Embarazo:false,
+                Puerperio:false,
+                Prematuridad:false,
                 SemanasDePrematuridad:'',
-                BajoPesoAlNacer:'',
+                BajoPesoAlNacer:false,
                 CantidadPesoAlNacer:'',
-                EnfermedadNeurologica:'',
-                EnfermedadHepatica:'',
-                EnfermedadRenalCronica:'',
-                HipertensionArterial:'',
-                EnfermedadOncologica:'',
-                BronquitisPrevia:'',
-                NAC_Previa:'',
-                EPOC:'',
-                Asma:'',
-                Tuberculosis:'',
-                Fumador:'',
-                OtrasDetalle:'',
-                FiebreMayorA38:'',
-                Taquipnea_Disnea:'',
-                Diarrea:'',
-                MalestarEnGenerl:'',
-                Tos:'',
-                Vomitos:'',
-                Artralgias:'',
-                InsuficienciaRespiratoria:'',
-                DolorAbdominal:'',
-                DolorToracico:'',
-                DolorDeGarganta:'',
-                RechazoAlAlimento:'',
-                IrritabilidadConfusion:'',
-                Convulsiones:'',
+                EnfermedadNeurologica:false,
+                EnfermedadHepatica:false,
+                EnfermedadRenalCronica:false,
+                HipertensionArterial:false,
+                EnfermedadOncologica:false,
+                BronquitisPrevia:false,
+                NAC_Previa:false,
+                EPOC:false,
+                Asma:false,
+                Tuberculosis:false,
+                Fumador:false,
+                OtrasDetalle:' ',
+                FiebreMayorA38:false,
+                Taquipnea_Disnea:false,
+                Diarrea:false,
+                MalestarEnGenerl:false,
+                Tos:false,
+                Vomitos:false,
+                Artralgias:false,
+                InsuficienciaRespiratoria:false,
+                DolorAbdominal:false,
+                DolorToracico:false,
+                DolorDeGarganta:false,
+                RechazoAlAlimento:false,
+                IrritabilidadConfusion:false,
+                Convulsiones:false,
                 OtrosDetalleSintomas:'',
-                
-
-                
+                Calle:'',
+                NroDeCalle:'',
+                Dpto:'',
+                Piso:'',
+                Calle1:' ',
+                NroDeCalle1:' ',
+                Dpto1:' ',
+                Piso1:' ',
+                provincia1:'',
+                localidad1:'',    
             }
         },
+
         created: function(){
             console.log('Iniciando...')
             this.get_provincias()
             this.get_localidades()
             this.get_api()
         },
+
+        
+
         methods:{
 
             get_api(){
@@ -422,14 +428,7 @@
                     console.log(err)
                 })
             },
-            mostrar(){
-                //console.log('provincia: ',provincia.value)
-                //console.log('localidad: ',localidad.value)
-                console.log(SiNo.value)
-                console.log('Estoy en la funcion mostrar')
-            },
             get_provincias(){
-                console.log('ejecutando get_provincias')
                 axios.get(`http://40.118.242.96:12600/api/Provincia/GetAll`)
                 .then((response)=>{
                     this.provincias = response.data
@@ -450,35 +449,208 @@
                 })
             },
 
+            /*cargar_localidad(){
+                let datos = {
+                    nombre: "Pampa del Infierno",
+                    provinciaId: 2,
+                    codigoPostal: "6666"
+                }
 
-            enviar(){
-                //Esto es para probar
-                console.log(this.ocupacion,this.TieneVacunaAntiGripal,this.FechaDeVacunacion,this.FechaDeVencimientoDeLaVacuna)
-                console.log('asd',this.SiNo,this.PaisEnQueEstuvo,this.CiudadDelPaisEnQueEstuvo,this.fechaPaisDesde,this.fechaPaisHasta)
-                console.log('asd2',this.opcionViaje,this.compania,this.fechaIngreso,this.ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas)
-                console.log('asd3',this.domicilioEnQueEstuvo,this.fechaDesde,this.fechaHasta)
-                console.log("Enfermedades y Comorbilidades",this.PresentaEnfermedadesComorbilidades,this.InmunoSupresionCongenitaOAdquirida,this.Diabetes)
-                
-                console.log(this.SiNo)
-                //Esto es lo que funciona
-                /*axios.post(`/ReportarSintomas/Paciente`,{
-                    nombre:this.nombre,
-                    apellido:this.apellido,
-                    dni:this.dni,
-                    fechaNacimiento:this.fechaNacimiento,
-                    edad:this.edad,
-                    sexo:this.sexo,
-                    email:this.email,
-                    telefono:this.telefono,
-                    direccion:this.direccion,
-                })
+                axios.post(`http://40.118.242.96:12600/api/Localidad/Add`,datos,config)
                 .then((response)=>{
-                    console.log('Elemento creado Paciente: ',response)
+                    console.log('Post de localidades')
                 })
                 .catch((err)=>{
                     console.log(err)
                 })
-                */
+            },*/
+
+            pruebas(){
+                console.log('----PRUEBAS----')
+                // EMPIEZA
+                console.log('Todo esto va en Pacientes y Domicilio: ',this.Nombre,this.Apellido,this.Dni,this.FechaNacimiento,this.Calle,this.NroDeCalle,this.Dpto,this.Dpto,this.Piso,
+                this.Telefono,this.Sexo,this.Email)
+
+                console.log('Antecedente Epidemiologicos1: ',parseInt(this.Ocupacion),this.TieneVacunaAntiGripal,this.FechaDeVacunacion,this.FechaDeVencimientoDeLaVacuna,this.strtobool(this.SiNo),
+                this.PaisEnQueEstuvo,this.CiudadDelPaisEnQueEstuvo,this.fechaPaisDesde,this.fechaPaisHasta,parseInt(this.opcionViaje),this.fechaIngreso, this.compania,this.strtobool(this.ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas),)
+                
+                console.log('Domicilio ajeno: ',this.Calle1,this.NroDeCalle1,this.Dpto1,this.Dpto1,this.Piso1,this.fechaDesde,this.fechaHasta,)
+                
+                console.log('Enfermedades Previas y Comorbilidades: ',this.strtobool(this.PresentaEnfermedadesComorbilidades),this.InmunoSupresionCongenitaOAdquirida,this.Diabetes,
+                this.Obesidad,this.Embarazo,this.Puerperio,this.Prematuridad, this.SemanasDePrematuridad,this.BajoPesoAlNacer, this.CantidadPesoAlNacer,this.EnfermedadNeurologica,
+                this.EnfermedadHepatica,this.EnfermedadRenalCronica,this.HipertensionArterial,this.EnfermedadOncologica,this.BronquitisPrevia,this.NAC_Previa,this.EPOC,this.Asma,
+                this.Tuberculosis,this.Fumador,'Aca vienen un false y un true',this.OtrasDetalle,)
+
+                console.log('Signos y Sintomas: ',this.FiebreMayorA38,this.Taquipnea_Disnea,this.Diarrea,this.Artralgias,this.MalestarEnGenerl,this.Tos,this.Vomitos,this.DolorDeGarganta,
+                this.InsuficienciaRespiratoria,this.DolorAbdominal,this.DolorToracico,this.RechazoAlAlimento,this.IrritabilidadConfusion,this.Convulsiones,'un true',this.OtrosDetalleSintomas)
+            },
+
+            strtobool(variable){
+            if ((variable == "True") || (variable == "true")){
+                variable = true
+            }else{
+                variable = false
+            }
+            return variable
+            },
+
+            enviar(){
+                let dataPost = {
+                    id:0,
+                    estadoDelFormulario:0,
+                    fechaDeCreacion: new Date(),
+                    paciente:{
+                        apiUserId:'string',
+                        id:0,
+                        nombre:this.Nombre,
+                        apellido:this.Apellido,
+                        tipoDeDocumento: 0,
+                        nroDeDocumento: this.Dni,
+                        fechaDeNacimiento: this.FechaNacimiento,
+                        domicilio: {
+                            domicilioId:0,
+                            calle: this.Calle,
+                            nroDeCalle:this.NroDeCalle,
+                            dpto:this.Dpto,
+                            nroDeDpto:this.Dpto,
+                            piso:this.Piso,
+                            localidadId:0,
+                            //Tomar solo el ID localidad
+                            localidad: {
+                                id: 0,
+                                nombre: "string",
+                                provinciaId: 0,
+                                provincia: {
+                                id: 0,
+                                nombre: "string"
+                                },
+                                codigoPostal: "string"
+                            }
+                        },
+                        telefono: this.Telefono,
+                        sexo: this.Sexo,
+                        correo: this.Email,
+                    },
+                    pacienteId:0,
+                    antecedenteEpidemiologicos1: {
+                        id:0,
+                        tipoDeOcupacionDelPaciente: parseInt(this.Ocupacion),
+                        otroTipoDeOcupacion: "string",
+                        tieneVacunaAntiGripal:this.TieneVacunaAntiGripal,
+                        fechaDeVacunacion: this.FechaDeVacunacion, //aca va el formateador,
+                        fechaDeVencimientoDeLaVacuna: this.FechaDeVencimientoDeLaVacuna, //aca va el formateador,
+                        estuvoEnUnLugarDeContagioFueraDelPaisPrevioASintomas: this.strtobool(this.SiNo),
+                        paisEnQueEstuvo: this.PaisEnQueEstuvo,
+                        ciudadDelPaisEnQueEstuvo: this.CiudadDelPaisEnQueEstuvo,
+                        fechaDeLlegadaAlPaisEnQueEstuvo: this.fechaPaisDesde, //aca va el formateador,
+                        fechaDeSalidaDelPaisEnQueEstuvo: this.fechaPaisHasta, //aca va el formateador,
+                        tipoDeTransporteUtilizado: parseInt(this.opcionViaje),
+                        fechaDeIngresoAlPais: this.fechaIngreso, //aca va el formateador,
+                        compañiaDeTransporte: this.compania,
+                        residioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas:this.strtobool(this.ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas),
+                        domicilioAlejoEnElQueResidio: {
+                            domicilioId: 0,
+                            calle: this.Calle1,
+                            nroDeCalle: this.NroDeCalle1,
+                            dpto: this.Dpto1,
+                            roDeDpto: this.Dpto1,
+                            piso: this.Piso1,
+                            localidadId:0,
+                            //Tomar solo el ID de localidad
+                            localidad: {
+                                id: 0,
+                                nombre: "string",
+                                provinciaId: 0,
+                                provincia: {
+                                id: 0,
+                                nombre: "string"
+                                },
+                                codigoPostal: "string"
+                            }
+                        },
+                        fechaDeLlegadaADomicilioAjeno: this.fechaDesde, //aca va el formateador,
+                        fechaDeSalidaDelDomicilioAjeno: this.fechaHasta, //aca va el formateador,
+                    },
+                    antecedenteEpidemiologicos1Id: 0,
+                    antecedenteEpidemiologicos2: {
+                        id:0,
+                        visitoCentroConCasosPositivosPrevioASintomas: false,
+                        nombreDelCentroVisitado: "string",
+                        ciudadDelCentroVisitado: "string",
+                        fechaDeLaVisitaAlCentro: new Date(),
+                        contactoConAnimalesPrevioASintomas: false,
+                        tipoDeAnimalesConContacto: 0,
+                        otroTipoDeContactoConAnimales: "string",
+                        contactoConPersonasConIRPrevioASintomas: false,
+                        tipoDeEntornoDeContacto: 0,
+                        otroTipoDeEntornoDeContacto: "string",
+                        contactoConCasosProbablesOConfirmadosPrevioASintomas: false,
+                        apellidoDelCaso: "string",
+                        nombreDelCaso: "string",
+                        dniDelCaso: "string",
+                        paisDelCaso: "string",
+                        areaDelCaso: "string",
+                    },
+                    antecedenteEpidemiologicos2Id: 0,
+                    enfermedadesPreviasComorbilidades: {
+                        id:0,
+                        presentaEnfermedadesComorbilidades:this.strtobool(this.PresentaEnfermedadesComorbilidades),
+                        inmunoSupresionCongenitaOAdquirida: this.InmunoSupresionCongenitaOAdquirida,
+                        diabetes:this.Diabetes,
+                        obesidad:this.Obesidad,
+                        embarzo:this.Embarazo,
+                        puerperio:this.Puerperio,
+                        prematuridad:this.Prematuridad,
+                        semanasDePrematuridad: this.SemanasDePrematuridad,
+                        bajoPesoAlNacer:this.BajoPesoAlNacer,
+                        cantidadDePesoAlNacer: this.CantidadPesoAlNacer,
+                        enfermedadNeurologica:this.EnfermedadNeurologica,
+                        enfermedadHepatica:this.EnfermedadHepatica,
+                        enfermedadRenalCronica:this.EnfermedadRenalCronica,
+                        hipertensionArterial:this.HipertensionArterial,
+                        enfermedadOncologica:this.EnfermedadOncologica,
+                        bronquitisPrevia:this.BronquitisPrevia,
+                        naC_Previa:this.NAC_Previa,
+                        epoc:this.EPOC,
+                        asma:this.Asma,
+                        tubercolosis:this.Tuberculosis,
+                        fumador:this.Fumador,
+                        ningunaDelasAnteriores: false,
+                        otras: true,
+                        otrasDetalle: this.OtrasDetalle,
+                    },
+                    enfermedadesPreviasComorbilidadesId: 0,
+                    signosYSintomas: {
+                        id: 0,
+                        fiebreMayorA38:this.FiebreMayorA38,
+                        taquipnea_Disnea:this.Taquipnea_Disnea,
+                        diarrea:this.Diarrea,
+                        artralgias:this.Artralgias,
+                        malestarEnGenerl:this.MalestarEnGenerl,
+                        tos:this.Tos,
+                        vomitos: this.Vomitos,
+                        dolorDeGarganta:this.DolorDeGarganta,
+                        insuficienciaRespiratoria:this.InsuficienciaRespiratoria,
+                        dolorAbdominal:this.DolorAbdominal,
+                        dolorToracico:this.DolorToracico,
+                        rechazoAlAlimento:this.RechazoAlAlimento,
+                        irritabilidadConfusion:this.IrritabilidadConfusion,
+                        convulsiones:this.Convulsiones,
+                        otros: true,
+                        otrosDetalle: this.OtrosDetalleSintomas
+                    },
+                    signosYSintomasId: 0,
+                    respuestaMedica: " "
+                }
+
+                axios.post(`http://40.118.242.96:12600/api/FormularioParaAnalisis/Add`,dataPost,config)
+                .then((response)=>{
+                    console.log('Formulario creado, no lo hiciste fallar :c ',response)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+                
                 
             }
         }
