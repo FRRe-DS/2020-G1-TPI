@@ -1,18 +1,43 @@
-<link rel="stylesheet" href="/styles/local/estilosCR.css">
-<div id="caja">
-    <form action="">
-        <h2>Por favor, ingrese los siguientes datos:</h2>
-        <br/>
-        <div id="caja2">
-            <label id="titulo">DNI:</label>
-            <input type="int" placeholder="DNI" name="dni" id="dni">
-            <label id="titulo">Codigo de validación:</label>
-            <input type="text" placeholder="Código" name="codigo" id="codigo">
+<link rel="stylesheet" href="/templates/estilosCR.css">
+<div id='app'>    
+    <div id="caja" @submit.prevent='stats'>
+        <form action="">
+            <h2>Por favor, ingrese los siguientes datos:</h2>
             <br/>
-            <div class="grid">
-                <input class="botones" type="submit" href="index.html" value="Cancelar ">
-                <input class="botones" type="submit" value="Consultar">
+            <div id="caja2">
+                <label id="titulo">DNI:</label>
+                <input type="int" placeholder="DNI" name="dni" id="dni">
+                <label id="titulo">Codigo de validación:</label>
+                <input type="text" placeholder="Código" name="codigo" id="codigo">
+                <br/>
+                <div class="grid">
+                    <input class="botones" type="submit" href="index.html" value="Cancelar ">
+                    <input class="botones" type="submit" value="Consultar" @onclick="stats">
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
+<script>
+    const vue = new Vue({
+        el:'#app',
+        data(){
+            return{
+
+            }
+        },
+        methods:{
+            stats(){
+                console.log('acepto')
+                axios.get(`https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/stat`) //URL estadisticas. Esto va en el index
+                .then((response)=>{
+                    console.log('entre')
+                    console.log(response)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            }
+        }
+    })
+</script>
