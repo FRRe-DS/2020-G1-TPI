@@ -104,7 +104,7 @@ hr {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color:#213B9C;
-    text-shadow: 2px 2px #C4CADB;
+    text-shadow: 2px 2px hsl(0, 0%, 86%);
     margin-top: 50px;
 }
 #fases1 {
@@ -114,7 +114,7 @@ hr {
     grid-template-columns: repeat(3, 33%);
 }
 #fases1 h2 {
-    background-color: #BDC0C8;
+    background-color: #hsl(0, 0%, 86%);
     border-radius: 10px;
     padding: 10px;
     font-family: Cambria;
@@ -129,7 +129,7 @@ hr {
     justify-self: center;
 }
 #fases2 h2 {
-    background-color: #BDC0C8;
+    background-color: hsl(0, 0%, 86%);
     border-radius: 10px;
     padding: 10px;
     font-family: Cambria;
@@ -148,7 +148,7 @@ hr {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color:#213B9C;
-    text-shadow: 2px 2px #C4CADB;
+    text-shadow: 2px 2px hsl(0, 0%, 86%);
 }
 .grid1 {
     display: grid;
@@ -212,8 +212,27 @@ img {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color:#213B9C;
-    text-shadow: 2px 2px #C4CADB;
+    text-shadow: 2px 2px hsl(0, 0%, 86%);
     margin-top: 70px;
+}
+#app {
+    margin:auto;
+    display:block;
+    width: 100%;
+}
+#tabla {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    display: block;  
+    border: none;
+}
+th {
+    font-size: 18px;
+    padding: 8px;
+}
+tr:nth-child(odd) {
+    background-color: hsl(0, 0%, 86%);
 }
 .grid3 {
     display: grid;
@@ -287,11 +306,11 @@ img {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color:#213B9C;
-    text-shadow: 2px 2px #C4CADB;
+    text-shadow: 2px 2px hsl(0, 0%, 86%);
     margin-top: 70px;
 }
 h2 {
-    background-color: #BDC0C8;
+    background-color: hsl(0, 0%, 86%);
     border-radius: 10px;
     padding: 10px;
     font-family: Cambria;
@@ -333,7 +352,7 @@ h3 {
     margin-top: 130px;
     border: 2px solid #151A61;
     height: 250px;
-    background: #eee;
+    background: hsl(0, 0%, 86%);
     border-radius: 5px;
     font-size: 18px;
     font-family: Arial;
@@ -347,7 +366,7 @@ h3 {
     font-weight: bold;
     font-size: 24px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background: #eee;
+    background: hsl(0, 0%, 86%);
 }
 #botonLC {
     padding: 10px;

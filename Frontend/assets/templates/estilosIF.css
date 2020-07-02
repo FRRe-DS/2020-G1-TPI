@@ -95,14 +95,14 @@ option {
     padding:2%;
     font-size: 15px;
 }
-#sintomas1 {
+#stextomas1 {
     width: 20%;
     float: left;
     padding:2%;
     font-size: 15px;
     height: auto;
 }
-#sintomas2 {
+#stextomas2 {
     width: 20%;
     float: left;
     padding:2%;
@@ -110,7 +110,7 @@ option {
     margin-left: 1%;
     height: auto;
 }
-#sintomas3 {
+#stextomas3 {
     width: 20%;
     float: right;
     padding:2%;
@@ -118,7 +118,7 @@ option {
     margin-right: 2%;
     height: auto;
 }
-#sintomas4 {
+#stextomas4 {
     width: 20%;
     float: right;
     padding:2%;
