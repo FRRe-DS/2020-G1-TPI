@@ -1,5 +1,40 @@
 <link rel="stylesheet" href="/templates/estilosCR.css">
-<div id='app'>    
+<div id='app'>
+    
+    <section class="modal" id="openmodal">
+    <input type="checkbox" id="cerrar">
+    <label for="cerrar"  href="index.html" id="btn-cerrar">X</label>
+        <div class="opciones">
+        <! – en caso de que no haya completado el formulario — >
+            
+            <div id="opcion1">
+                <h2>El DNI o el codigo de validación ingresados no son correctos. Por favor, intente nuevamente.</h2>
+            </div> 
+
+        <! – en caso de que el paciente haya completado el formulario — >
+           <div id="opcion2">
+                <h2>Su información está siendo analizada. Por favor, consulte más tarde.</h2>
+           </div> 
+           <div id="opcion3">
+                <h2>La evaluación de su formulario corresponde a una persona sospechosa de Covid-19 y por lo tanto, deberá acercarse al Centro Hospitalario para poder realizarle el hisopado.</h2>
+           </div>
+           <div id="opcion4">
+                <h2>La evaluación de su formulario no corresponde a una persona sospechosa de Covid-19.</h2>
+           </div>
+        
+        <! – en caso de que el paciente haya completado el formulario y se haya realizado el hisopado en un centro hospitalario — >
+           <div id="opcion5">
+                <h2>El análisis de su hisopado está siendo analizado. Por favor, consulte más tarde.</h2>
+           </div>
+           <div id="opcion6">
+                <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
+           </div>
+           <div id="opcion7">
+                <h2>El resultado de su hisopado dio negativo y usted no contiene Covid-19.</h2>
+           </div>
+        </div>
+    </section>    
+
     <div id="caja" @submit.prevent='stats'>
         <form action="">
             <h2>Por favor, ingrese los siguientes datos:</h2>
@@ -12,7 +47,7 @@
                 <br/>
                 <div class="grid">
                     <input class="botones" type="submit" href="index.html" value="Cancelar ">
-                    <input class="botones" type="submit" value="Consultar" @onclick="stats">
+                    <input class="botones" type="submit" href="#openmodal" value="Consultar" @onclick="stats">
                 </div>
             </div>
         </form>
@@ -23,7 +58,6 @@
         el:'#app',
         data(){
             return{
-
             }
         },
         methods:{

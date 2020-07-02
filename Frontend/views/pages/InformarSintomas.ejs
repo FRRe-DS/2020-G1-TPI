@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/templates/estilosIF.css">
 <div id="app">
         <form id="formulario" @submit.prevent="enviar">
-            <h2>Formulario de notificación de Coronavirus</h2>
+            <h4 id="titulo1">Formulario de notificación de Coronavirus</h4>
             <fieldset>
                 <legend>Datos personales</legend>
                 <div>
@@ -13,7 +13,7 @@
                         <input v-model="Nombre" class="input" type="text" placeholder="Nombre">
 
                         <label class="label">DNI</label>
-                        <input v-model="Dni" class="input" type="text" placeholder="">
+                        <input v-model="Dni" class="input" type="text" placeholder="dni">
 
                     </div>
                 </div>
@@ -48,13 +48,13 @@
                 <label class="negrita">Dirección</label>
                 <br>
                     <label class="label">Calle</label>
-                    <input v-model="Calle" class="input" type="text" placeholder="Calle">
+                    <input v-model="Calle" class="input" size="17" type="text" placeholder="Calle">
                     <label class="label">Número</label>
-                    <input v-model="NroDeCalle" class="input" type="text" placeholder="Número calle">
+                    <input v-model="NroDeCalle" class="input" size="8" type="text" placeholder="Número calle">
                     <label class="label">Depto</label>
-                    <input v-model="Dpto" class="input" type="text" placeholder="">
+                    <input v-model="Dpto" class="input" size="2" type="text" placeholder="-">
                     <label class="label">Piso</label>
-                    <input v-model="Piso" class="input" type="text" placeholder="">
+                    <input v-model="Piso" class="input" size="2" type="text" placeholder="-">
                     <br>
                     <br>
 
@@ -72,10 +72,6 @@
                     </div>
                 </div>
             </fieldset>
-
-
-
-
 
             <fieldset>
                <legend>Antecedentes Epidemiológicos</legend> 
@@ -111,7 +107,6 @@
                     </div>
 
                     <br/>
-
                     <label class="negrita" >Viajes y otras exposiciones de riesgo</label>
                     <div class="margen">
                         <div class="field">
@@ -157,13 +152,13 @@
                                 <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
                             </div>
                         <label class="label">Calle</label>
-                        <input v-model="Calle1" class="input" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Calle1" class="input" size="10" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Número</label>
-                        <input v-model="NroDeCalle1" class="input" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="NroDeCalle1" class="input" size="2" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Depto</label>
-                        <input v-model="Dpto1" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Dpto1" class="input" size="2" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Piso</label>
-                        <input v-model="Piso1" class="input" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Piso1" class="input" size="2" type="text" placeholder="" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <br>
                         <label class="label" for="">Provincia</label>
                         <select v-model="provincia1" class="form-control" id="provincia" @click='' :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
@@ -182,17 +177,12 @@
                     </div>
             </fieldset>
 
-
-
-
-
             <fieldset>
                 <legend>Enfermedades previas / Comorbilidades</legend>
                 <div class="margen">
                     <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="true"> Presenta
                     <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="false"> No Presenta
                 </div>
-
                 <div id="enfermedades1" class="checkbox">
                         <input type="checkbox" id="InmunoSupresionCongenitaOAdquirida" v-model="InmunoSupresionCongenitaOAdquirida" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Inmunosupresión congénita o adquirida
                         <br>
@@ -205,14 +195,13 @@
                         <input type="checkbox" id="Puerperio" v-model="Puerperio" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Puerperio
                         <br>
                         <input type="checkbox" id="Prematuridad" v-model="Prematuridad" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Prematernidad
-                        <input v-model="SemanasDePrematuridad" class="input" type="text" placeholder="Semanas" :disabled="!Prematuridad"/>
+                        <input v-model="SemanasDePrematuridad" class="input" type="text" size="5" placeholder="Semanas" :disabled="!Prematuridad"/>
                         
                         <br>
                 </div>
-
                 <div id="enfermedades2">
                         <input type="checkbox" id="BajoPesoAlNacer" v-model="BajoPesoAlNacer" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Bajo peso al nacer
-                        <input v-model="CantidadPesoAlNacer" class="input" type="text" placeholder="gr" :disabled="!BajoPesoAlNacer"/>
+                        <input v-model="CantidadPesoAlNacer" class="input" size="3" type="text" placeholder="gr" :disabled="!BajoPesoAlNacer"/>
                         <br>
                         <input type="checkbox" id="EnfermedadNeurologica" v-model="EnfermedadNeurologica" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Enfermedad neurológica
                         <br>
@@ -225,7 +214,6 @@
                         <input type="checkbox" id="EnfermedadOncologica" v-model="EnfermedadOncologica" :disabled="PresentaEnfermedadesComorbilidades === 'false'">Enfermedad oncológica
                         <br>
                 </div>
-
                 <div id="enfermedades3">
                         <input type="checkbox" id="BronquitisPrevia" v-model="BronquitisPrevia" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Bronquiolitis previa
                         <br>
@@ -241,14 +229,9 @@
                         <br>
                         <br>
                 </div>
-
                 <label>Otros</label>
-                <input v-model="OtrasDetalle" class="input" type="text" placeholder="Especificar" :disabled="PresentaEnfermedadesComorbilidades === 'false'">
+                <input v-model="OtrasDetalle" class="input" type="text" :disabled="PresentaEnfermedadesComorbilidades === 'false'">
             </fieldset>
-
-
-
-
 
             <fieldset>
                 <legend>Signos y Síntomas</legend>
@@ -260,7 +243,6 @@
                         <input type="checkbox" id="Diarrea" v-model="Diarrea">Diarrea
                         <br>
                 </div>
-
                 <div id="stextomas2">
                         <input type="checkbox" id="MalestarEnGenerl" v-model="MalestarEnGenerl">Malestar general
                         <br>
@@ -269,7 +251,6 @@
                         <input type="checkbox" id="Vomitos" v-model="Vomitos">Vómitos
                         <br>
                 </div>
-
                 <div id="stextomas3">
                         <input type="checkbox" id="Artralgias" v-model="Artralgias">Artralgias
                         <br>
@@ -280,37 +261,23 @@
                         <input type="checkbox" id="DolorToracico" v-model="DolorToracico">Dolor torácico
                         <br>
                 </div>
-
                 <div id="stextomas4">
-                        <input type="checkbox" id="DolorDeGarganta" v-model="DolorDeGarganta">Dolor de garganta
-                    </div>
-                    <div>
-                        <input type="checkbox" id="RechazoAlAlimento" v-model="RechazoAlAlimento">Rechazo de alimento
-                    </div>
-                    <div>
-                        <input type="checkbox" id="IrritabilidadConfusion" v-model="IrritabilidadConfusion"> Irritabilidad / Confusión
-                    <div>
-                        <input type="checkbox" id="Convulsiones" v-model="Convulsiones">Convulsiones
-                    </div>
+                    <input type="checkbox" id="DolorDeGarganta" v-model="DolorDeGarganta">Dolor de garganta
                     <br/>
+                    <input type="checkbox" id="RechazoAlAlimento" v-model="RechazoAlAlimento">Rechazo de alimento
                     <br/>
+                    <input type="checkbox" id="IrritabilidadConfusion" v-model="IrritabilidadConfusion"> Irritabilidad / Confusión
+                    <br/>
+                    <input type="checkbox" id="Convulsiones" v-model="Convulsiones">Convulsiones
                 </div>
-
-
                 <label>Otros</label>
-                <input v-model="OtrosDetalleSintomas" class="input" type="text" placeholder="Especificar">
+                <input v-model="OtrosDetalleSintomas" class="input" type="text" />
             </fieldset>
-
-
-
-
 
             <div id="boton">
                 <input type="submit" value="Enviar Formulario" id="botonEnviar" @onclick="enviar"/>
-            </div>
-                
+            </div> 
         </form>
-        
     </div>
 
 <script>
@@ -414,8 +381,6 @@
             this.get_localidades()
             this.get_api()
         },
-
-        
 
         methods:{
 
