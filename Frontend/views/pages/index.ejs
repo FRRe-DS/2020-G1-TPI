@@ -139,25 +139,33 @@
 								<th>Cantidad de enfermos</th>
 								<th>Cantidad de muertos</th>
 								<th>Cantidad de recuperados</th>
+								<th>Porcentaje enfermos</th>
+								<th>Porcentaje muertos</th>
+								<th>Porcentaje recuperados</th>
 							</tr>
 							<tr v-for="(dato,index) in datos">
-								<td v-text="dato.nombreCiudad">Contenido Fila 1</td>
+								<td v-text="dato.nombreCiudad"></td>
 								<td v-text="dato.poblacion"></td>
 								<td v-text="dato.cantidades.enfermos"></td>
 								<td v-text="dato.cantidades.muertos"></td>
 								<td v-text="dato.cantidades.recuperados"></td>
+								<td>{{((parseInt(dato.cantidades.enfermos)*100)/parseInt(dato.poblacion)).toFixed(2)}}</td>
+								<td>{{((parseInt(dato.cantidades.muertos)*100)/parseInt(dato.poblacion)).toFixed(2)}}</td>
+								<td>{{((parseInt(dato.cantidades.recuperados)*100)/parseInt(dato.poblacion)).toFixed(2)}}</td>
 							</tr>
 							<tr>
 								<td>Totales:</td>
-								<td v-text="datosCompletos[17].totales.poblacionTotal"></td>
-								<td v-text="datosCompletos[17].totales.enfermos"></td>
-								<td v-text="datosCompletos[17].totales.muertos"></td>
-								<td v-text="datosCompletos[17].totales.recuperados"></td>
+								<td v-text="datosCompletos.totales.poblacionTotal"></td>
+								<td v-text="datosCompletos.totales.enfermos"></td>
+								<td v-text="datosCompletos.totales.muertos"></td>
+								<td v-text="datosCompletos.totales.recuperados"></td>
+								<td>{{((parseInt(datosCompletos.totales.enfermos)*100)/parseInt(datosCompletos.totales.poblacionTotal)).toFixed(2)}}</td>
+								<td>{{((parseInt(datosCompletos.totales.muertos)*100)/parseInt(datosCompletos.totales.poblacionTotal)).toFixed(2)}}</td>
+								<td>{{((parseInt(datosCompletos.totales.recuperados)*100)/parseInt(datosCompletos.totales.poblacionTotal)).toFixed(2)}}</td>
 							</tr>
 						</table>
 						
-						<h4>Actualizado por ultima vez: </h4>
-						<h4 v-text="fechaActualizacion"></h4>
+						<h4>Actualizado por ultima vez: {{fechaActualizacion.toLocaleString("es-AR")}}</h4>
 					</div>
 				</div>
 				<br/>
@@ -264,21 +272,15 @@
 					console.log('Get "Stats" 200')
 					longitud = ((response.data).length)-1
 					this.datos = response.data[longitud].dataCiudades
-					this.fechaActualizacion = response.data[longitud].createdAt
+					this.fechaActualizacion = new Date(response.data[longitud].createdAt)
 					//console.log(this.fechaActualizacion)
-					this.datosCompletos = response.data
+					this.datosCompletos = response.data[longitud]
 					//console.log('Datos completos: ',this.datosCompletos)
 				})
 				.catch((err)=>{
 					console.log(err)
 				})
 			},
-			stats(){
-				console.log('Datos: ',this.datos[0].dataCiudades[0].nombreCiudad)
-				for (let i=0;i<52;i++){
-					console.log('Datos: ',this.datos[0].dataCiudades[i].nombreCiudad)
-				}
-			}
 		}
 	})
 </script>
