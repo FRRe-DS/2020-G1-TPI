@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="/templates/estilosCR.css">
 <div id='app'>
     
-    <section class="modal" id="openmodal">
-    <input type="checkbox" id="cerrar">
-    <label for="cerrar"  href="index.html" id="btn-cerrar">X</label>
+    <!--
         <div class="opciones">
         <! – en caso de que no haya completado el formulario — >
             
@@ -34,8 +32,9 @@
            </div>
         </div>
     </section>    
+    -->
 
-    <div id="caja" @submit.prevent='stats'>
+    <div id="caja">
         <form action="">
             <h2>Por favor, ingrese los siguientes datos:</h2>
             <br/>
@@ -46,18 +45,30 @@
                 <input type="text" placeholder="Código" name="codigo" id="codigo">
                 <br/>
                 <div class="grid">
-                    <input class="botones" type="submit" href="index.html" value="Cancelar ">
-                    <input class="botones" type="submit" href="#openmodal" value="Consultar" @onclick="stats">
+                    <a class="botones" type="submit" href="/">Cancelar</a>
+                    <button class="botones" type="submit" @click="isModalActive=true">Consultar</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <div class="modal" :class="{'is-active': isModalActive}">
+        <div class="modal-background" @click="isModalActive=false"></div>
+        <div class="modal-content">
+            <div id="opcion6">
+                <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
+            </div>
+        </div>
+        <button class="botones" type="submit" @click="isModalActive=false"></button>
+    </div>
 </div>
+
 <script>
     const vue = new Vue({
         el:'#app',
-        data(){
+        data: function(){
             return{
+                isModalActive: false,
             }
         },
         methods:{

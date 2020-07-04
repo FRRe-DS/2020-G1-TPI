@@ -25,6 +25,9 @@ form {
     border-radius: 10px;
     box-shadow: 0 0 10px #333;
 }
+#encabezado {
+    display: none;
+}
 h2 {
     font-size: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
@@ -109,7 +112,7 @@ input {
 /*  <input type="checkbox" id="cerrar">
 <label for="cerrar" id="btn-cerrar"></label>
 <section class="modal" id="openmodal">
-    <div class="opciones">*/
+    <div class="opciones">
 
     .modal {
         width: 100%;
@@ -158,4 +161,4 @@ input {
         margin: auto;
         display: block;
     
-    }
+    }*/
