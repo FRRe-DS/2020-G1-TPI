@@ -34,7 +34,7 @@
     </section>    
     -->
 
-    <div id="caja">
+    <div id="caja" @submit.prevent="isModalActive=true">
         <form action="">
             <h2>Por favor, ingrese los siguientes datos:</h2>
             <br/>
@@ -72,17 +72,7 @@
             }
         },
         methods:{
-            stats(){
-                console.log('acepto')
-                axios.get(`https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/stat`) //URL estadisticas. Esto va en el index
-                .then((response)=>{
-                    console.log('entre')
-                    console.log(response)
-                })
-                .catch((err)=>{
-                    console.log(err)
-                })
-            }
+            
         }
     })
 </script>

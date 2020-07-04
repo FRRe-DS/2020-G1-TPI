@@ -270,6 +270,7 @@
 				axios.get(`https://6iubewzdng.execute-api.sa-east-1.amazonaws.com/dev/stat`) //URL estadisticas. Esto va en el index
 				.then((response)=>{
 					console.log('Get "Stats" 200')
+					console.log(response)
 					longitud = ((response.data).length)-1
 					this.datos = response.data[longitud].dataCiudades
 					this.fechaActualizacion = new Date(response.data[longitud].createdAt)
