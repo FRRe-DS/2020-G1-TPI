@@ -19,28 +19,18 @@ form {
     margin: auto;
     width: 50%;
     max-width: 500px;
-    background-color: hsl(0, 0%, 86%);
+    background-color: hsl(0, 0%, 71%);
     padding: 30px;
     border: 1px solid #151A61;
     border-radius: 10px;
     box-shadow: 0 0 10px #333;
 }
-#encabezado {
-    display: none;
-}
-h1 {
-    font-size: 50px;
-    color:black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
 h2 {
-    font-size: 25px;
+    font-size: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
 }
-
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 40%);
@@ -60,32 +50,12 @@ h2 {
     border-radius: 5px;
     border:none;
     margin: auto;
-    padding: 5px;
-}
-.botones2 {
-    width: 100px;
-    height: 40px;
-    font-size: 18px;
-    margin: 0px;
-    background-color: #213B9C;
-    color: #C2C4CC;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    border:none;
-    margin: auto;
-    padding: 7px;
 }
 .botones:hover {
     color: #90E6F3;
 }
-.botones2:hover {
-    color: #90E6F3;
-}
 #titulo {
-    font-size:17px;
-
+    font-size:19px;
 }
 
 input {
@@ -97,6 +67,9 @@ input {
     font-size: 15px;
     width: 100%;
     align-items: center;
+}
+#botonUp{
+    display: none;
 }
 /*
 .boton1 {
