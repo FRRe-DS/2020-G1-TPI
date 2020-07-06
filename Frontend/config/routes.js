@@ -25,17 +25,6 @@ module.exports.routes = {
   '/InformarSintomas':{view: 'pages/InformarSintomas'},
   '/consultarResultado':{view: 'pages/consultarResultado'},
 
-  //Formulario
-  'POST /ReportarSintomas':'FormularioParaAnalisisController.store',
-  'POST /ReportarSintomas/Paciente': 'ListaPacienteController.store',
-  'GET /Pacientes': 'ListaPacienteController.list',
-
-  //Provincias
-  'GET /Provincias':'ProvinciaController.list',
-
-  //Localidades
-  'GET /Localidades':'LocalidadController.list',
-
 
   /***************************************************************************
   *                                                                          *

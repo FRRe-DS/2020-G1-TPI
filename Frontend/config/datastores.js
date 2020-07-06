@@ -52,17 +52,5 @@ module.exports.datastores = {
     url: 'mysql://root:1234@localhost:3306/formulario',
 
   },
-  
-  sqlserver: {
-    adapter: 'sails-sqlserver',
-    url: 'mssql://COVID19:COVID19@40.118.242.96\\UTNSQLEXPRESS/COVID'
-    /*user: 'COVID19',
-    password: 'COVID19',
-    host: '40.118.242.96\UTNSQLEXPRESS', // azure database
-    database: 'COVID'
-  }
   */
-  
-
-
 };
