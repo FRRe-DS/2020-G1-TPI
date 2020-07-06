@@ -1,13 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-}
-#body {
-    display: flex;
-    min-height: 100vh;
-}
 #caja {
     margin-top: 100px;
 }
@@ -39,6 +29,7 @@ h2 {
     text-align: center;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(0, 0%, 86%);
 }
 
 .grid {
@@ -84,10 +75,9 @@ h2 {
     color: #90E6F3;
 }
 #titulo {
-    font-size:17px;
-
+    font-size:20px;
+    color: black;
 }
-
 input {
     display: block;
     padding: 5px;
@@ -98,94 +88,11 @@ input {
     width: 100%;
     align-items: center;
 }
-/*
-.boton1 {
-    width: 100px;
-    height: 40px;
-    padding: 2px;
-    font-size: 18px;
-    margin: 0px;
-    background-color: #213B9C;
-    color: #C2C4CC;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    margin-top: 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    border:none;
-    align-items: left;
+#resultado {
+    width: 550px;
+    height: 150px;
+    background-color: hsl(0, 0%, 86%);
+    border-radius: 15px;
+    margin: auto;
+    padding: 10px;
 }
-.boton2 {
-    width: 100px;
-    height: 40px;
-    padding: 2px;
-    font-size: 18px;
-    margin: 0px;
-    background-color: #213B9C;
-    color: #C2C4CC;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    margin-top: 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    border:none;
-    align-items: right;
-}
-.boton1:hover, .boton2:hover{
-    color: #90E6F3;
-}
-*/
-
-/*  <input type="checkbox" id="cerrar">
-<label for="cerrar" id="btn-cerrar"></label>
-<section class="modal" id="openmodal">
-    <div class="opciones">
-
-    .modal {
-        width: 100%;
-        height: 100vh;
-        background-color: hsl(0, 0%, 71%);
-        
-        position: absolute;
-        top: 0;
-        left: 0;
-    
-        display: flex;
-        
-    }
-    
-    .opciones {
-        margin: auto;
-        width: 40%;
-        height: 40%;
-        background-color: white;
-        border-radius: 10px;
-        padding: 35px;
-    }
-    #cerrar {
-        display: none;
-    }
-    #cerrar + label {
-        position: fixed;
-        color: black;
-        font-weight: bold;
-        font-size: 30px;
-        z-index: 50;
-        padding: 10px;
-        margin: 10px;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        right: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-        margin: auto;
-    }
-    #cerrar + label :hover {
-        color: red;
-    }
-    #imagen {
-        margin: auto;
-        display: block;
-    
-    }*/

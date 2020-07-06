@@ -9,17 +9,14 @@ body {
     height:1700px;
     background-repeat: no-repeat;
 }
-
 #secciones{
     width: 100%;
     height: 80px;
     background-color: #151A61;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    margin-top: -240px;    
+    margin: auto;
+    /*position: fixed;
+    margin-top: -240px; */    
 }
-
 h1{
     color:#FFF;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -35,8 +32,8 @@ ul {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    top: 0px;
-    position: fixed;
+    /*top: 0px;
+    position: fixed;*/
 }
 li {
     float: left;
@@ -66,9 +63,10 @@ li a:hover{
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 25Px;
+    margin-top: -65px;
     text-decoration: none;
     border-radius: 5px;
+    margin-right: 200px;
 }
 #botonRS:hover{
     color: #90E6F3;
@@ -82,7 +80,7 @@ li a:hover{
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 25px;
+    margin-top: -65px;
     text-decoration: none;
     border-radius: 5px;
 }
@@ -92,7 +90,6 @@ li a:hover{
 hr {
     box-shadow: 0 0 2px #333;
 }
-
 /*Estado pandemia */
 #estadoPandemia {
     width: 80%;
@@ -353,10 +350,10 @@ h3 {
     padding: 20px;
     margin-top: 130px;
     border: 2px solid #151A61;
-    height: 250px;
+    height: auto;
     background: hsl(0, 0%, 86%);
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 17px;
     font-family: Arial;
     text-align: center;
     font-weight: normal;
