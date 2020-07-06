@@ -25,9 +25,9 @@ h2 {
     background-color: hsl(0, 0%, 86%);
     font-size: 22px;
 }
-.grid {
+.botonC {
     display: grid;
-    grid-template-columns: repeat(2, 40%);
+    margin:auto;
     justify-content: space-around;
     height: auto;
 }
@@ -87,12 +87,11 @@ input {
     margin: auto;
     padding: 20px;
 }
-
 #botonUp{
     display: none;
 }
 #botonRS{
-    padding: 5px;
+    padding: 3px;
     font-size: 18px;
     float:right;
     margin: 10Px;
@@ -100,14 +99,16 @@ input {
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: -75px;
+    margin-top: -65px;
     text-decoration: none;
     border-radius: 5px;
     margin-right: 200px;
 }
-
+#botonRS:hover{
+    color: #90E6F3;
+}
 #botonCR {
-    padding: 5px;
+    padding: 3px;
     font-size: 18px;
     float:right;
     margin: 10px;
@@ -115,7 +116,10 @@ input {
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: -75px;
+    margin-top: -65px;
     text-decoration: none;
     border-radius: 5px;
+}
+#botonCR:hover{
+    color: #90E6F3;
 }

@@ -8,6 +8,7 @@ body {
     background-color: #fff;
     height:1700px;
     background-repeat: no-repeat;
+    margin: 0px;
 }
 #secciones{
     width: 100%;
@@ -42,7 +43,7 @@ li a{
     display: block;
     text-align: center;
     padding: 15px;
-    margin: 20px;
+    margin: 15px;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 5px; 
@@ -63,7 +64,7 @@ li a:hover{
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: -65px;
+    margin-top: -55px;
     text-decoration: none;
     border-radius: 5px;
     margin-right: 200px;
@@ -80,7 +81,7 @@ li a:hover{
     color: #C2C4CC;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: -65px;
+    margin-top: -55px;
     text-decoration: none;
     border-radius: 5px;
 }
