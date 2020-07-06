@@ -388,3 +388,9 @@ h3 {
     color: #000;
     font-size: 18px;
 }
+
+#botonUp{
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+}

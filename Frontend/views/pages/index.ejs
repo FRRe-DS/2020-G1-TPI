@@ -1,4 +1,7 @@
 <body background="/images/covid.PNG">
+	<div id="encabezado">
+		<h1>CORONAVIRUS</h1>
+	  </div>
 		<section id="estadoPandemia">
 			<div>
 				<br/>
@@ -125,7 +128,8 @@
 		<hr/>
 		
 		<!-- Cargar tabla con estadisticas del ministerio -->
-		<section id="app">
+		<section id="informesDiarios">
+			<div id="app">
 				<div id="">
 					<h1 id="titulo3">Informe diario</h1>
 				</div>
@@ -169,6 +173,7 @@
 					</div>
 				</div>
 				<br/>
+			</div>
 		</section>
 		<hr/>
 		<section id="preguntasFrecuentes">
@@ -247,7 +252,7 @@
 				
 			</section>
 	<hr/>
-
+	<a href="/#estadoPandemia"><img src="/images/flecha-arriba.png" id="botonUp"> </a>
 <script>
 	const vue = new Vue({
 		el:'#app',
