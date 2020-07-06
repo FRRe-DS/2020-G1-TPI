@@ -91,3 +91,31 @@ input {
 #botonUp{
     display: none;
 }
+#botonRS{
+    padding: 5px;
+    font-size: 18px;
+    float:right;
+    margin: 10Px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: -75px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 200px;
+}
+
+#botonCR {
+    padding: 5px;
+    font-size: 18px;
+    float:right;
+    margin: 10px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: -75px;
+    text-decoration: none;
+    border-radius: 5px;
+}
