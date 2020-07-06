@@ -157,3 +157,6 @@ option {
 #botonEnviar:hover{
     color: #90E6F3;
 }
+#botonUp{
+    display: none;
+}
