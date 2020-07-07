@@ -11,13 +11,14 @@ body {
 form {
     margin: auto;
     width: 50%;
-    max-width: 500px;
+    max-width: 32%;
     background-color: hsl(0, 0%, 86%);
     padding: 30px;
     border: 1px solid #151A61;
     border-radius: 10px;
     box-shadow: 0 0 10px #333;
 }
+
 h2 {
     text-align: center;
     color: black;
@@ -69,6 +70,9 @@ h2 {
     font-size:20px;
     color: black;
 }
+#tituloCR {
+    text-align: center;
+}
 input {
     display: block;
     padding: 5px;
@@ -81,11 +85,11 @@ input {
 }
 #resultado {
     width: 550px;
-    height: 150px;
+    height: auto;
     background-color: hsl(0, 0%, 86%);
     border-radius: 15px;
     margin: auto;
-    padding: 20px;
+    padding: 25px;
 }
 #botonUp{
     display: none;
@@ -142,7 +146,7 @@ input {
     form {
         margin: auto;
         width: 80%;
-        max-width: 500px;
+        max-width: 90%;
         background-color: hsl(0, 0%, 86%);
         padding: 30px;
         border: 1px solid #151A61;
@@ -155,8 +159,11 @@ input {
         font-family: Arial, Helvetica, sans-serif;
         background-color: hsl(0, 0%, 86%);
         font-size: 22px;
-        margin: auto;
+        padding: 30px;
         align-items: center;
+    }
+    #resultado h2 {
+        margin: auto;
     }
     .botonC {
         display: grid;
@@ -195,18 +202,17 @@ input {
         align-items: center;
     }
     #resultado {
-        width: 80%;
+        width: 90%;
         height: auto;
         background-color: hsl(0, 0%, 86%);
         border-radius: 15px;
         margin: auto;
-        padding: 10px;
-        text-align: center;
-        align-items: center;
+        padding: 20px;
     }
     .modal {
         width: 100%;
         margin: auto;
+        height: auto;
     }
     #botonUp{
         display: none;
