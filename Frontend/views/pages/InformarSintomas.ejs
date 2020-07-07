@@ -25,7 +25,7 @@
                             <input v-model="FechaNacimiento" class="input" type="date" value="fechaNacimiento" required>
 
                             <label class="label" for="">Sexo</label>
-                            <select v-model='Sexo' required>
+                            <select v-model='Sexo' id="sexo" required>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                             </select>
@@ -108,10 +108,10 @@
                     <label class="negrita" >Viajes y otras exposiciones de riesgo</label>
                     <div class="margen">
                         <div class="field">
-                            <div class="control">
+                            <div class="control" >
                                 <p>¿Ha viajado o recidido en una zona de riesgo conocida fuera del País en los últimos 14 días previos al inicio de síntomas?</p>
-                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value=true> Si
-                                <input v-model="SiNo" class="radio" type="radio" name="SiNo" value=false> No
+                                <input id="siNo" v-model="SiNo" class="radio" type="radio" name="SiNo" value=true> Si
+                                <input id="siNo" v-model="SiNo" class="radio" type="radio" name="SiNo" value=false> No
 
                                 <br>
                                 <p>¿Dónde?</p>
@@ -132,15 +132,15 @@
                         </div>
                     </div>
                     
-                    <div target="_blank">
+                    <div class="margen2"  target="_blank">
                         <label>Viajó en:</label>
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="1" :disabled="SiNo === 'false'"> Avión
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="2" :disabled="SiNo === 'false'"> Barco
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="3" :disabled="SiNo === 'false'"> Omnibus
-                        <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="0" :disabled="SiNo === 'false'"> Otro
+                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="1" :disabled="SiNo === 'false'"> Avión
+                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="2" :disabled="SiNo === 'false'"> Barco
+                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="3" :disabled="SiNo === 'false'"> Omnibus
+                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="0" :disabled="SiNo === 'false'"> Otro
                         
                     </div>
-                    <div>
+                    <div class="margen2">
                         <label>Fecha de ingreso al País:</label>
                         <input v-model="fechaIngreso" class="input" type="date" value="fechaIngreso" :disabled="SiNo === 'false'">
                         
@@ -153,8 +153,8 @@
                     <div class="margen">
                         <p>¿Ha viajado o recidido en una zona dentro del país (distinto del domicilio) en los ultimos 14 días previos al inicio de síntomas?</p>
                             <div class="control">
-                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="true"> Si
-                                <input v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
+                                <input id="siNo" v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="true"> Si
+                                <input id="siNo" v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
                             </div>
                         <label class="label">Calle</label>
                         <input v-model="Calle1" class="input" size="10" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
@@ -180,9 +180,9 @@
 
             <fieldset>
                 <legend>Enfermedades previas / Comorbilidades</legend>
-                <div class="margen">
-                    <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="true"> Presenta
-                    <input v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="false"> No Presenta
+                <div class="margen" >
+                    <input id="presenta" v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="true"> Presenta
+                    <input id="presenta" v-model="PresentaEnfermedadesComorbilidades" class="radio" type="radio" name="PresentaEnfermedadesComorbilidades" value="false"> No Presenta
                 </div>
                 <div id="enfermedades1" class="checkbox">
                         <input type="checkbox" id="InmunoSupresionCongenitaOAdquirida" v-model="InmunoSupresionCongenitaOAdquirida" :disabled="PresentaEnfermedadesComorbilidades === 'false'"> Inmunosupresión congénita o adquirida

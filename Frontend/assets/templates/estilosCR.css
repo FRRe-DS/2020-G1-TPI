@@ -123,3 +123,121 @@ input {
 #botonCR:hover{
     color: #90E6F3;
 }
+
+@media handheld, screen and (max-width:599px) {
+    body {
+        height: auto;
+    }
+    #caja {
+        margin-top: 20px;
+    }
+    #caja2 {
+        width: 80%;
+        margin: auto;
+    }
+    #tituloCR {
+        text-align: center;
+        font-size: 25px;
+    }
+    form {
+        margin: auto;
+        width: 80%;
+        max-width: 500px;
+        background-color: hsl(0, 0%, 86%);
+        padding: 30px;
+        border: 1px solid #151A61;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #333;
+    }
+    h2 {
+        text-align: center;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: hsl(0, 0%, 86%);
+        font-size: 22px;
+    }
+    .botonC {
+        display: grid;
+        margin:auto;
+        justify-content: space-around;
+        height: auto;
+    }
+    .botones {
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        background-color: #213B9C;
+        color: #C2C4CC;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        border:none;
+        margin: auto;
+    }
+    .botones:hover {
+        color: #90E6F3;
+    }
+    #titulo {
+        font-size:17px;
+        color: black;
+    }
+    input {
+        display: block;
+        padding: 5px;
+        width: 100%;
+        margin: 20px 0;
+        margin-top: 5px;
+        font-size: 15px;
+        width: 100%;
+        align-items: center;
+    }
+    #resultado {
+        width: 70%;
+        height: auto;
+        background-color: hsl(0, 0%, 86%);
+        border-radius: 15px;
+        margin: auto;
+        padding: 15px;
+    }
+    #botonUp{
+        display: none;
+    }
+    #botonRS{
+        padding: 3px;
+        font-size: 18px;
+        float:right;
+        margin: 10Px;
+        background-color: #213B9C;
+        color: #C2C4CC;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        margin-top: -65px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-right: 200px;
+    }
+    #botonRS:hover{
+        color: #90E6F3;
+    }
+    #botonCR {
+        padding: 3px;
+        font-size: 18px;
+        float:right;
+        margin: 10px;
+        background-color: #213B9C;
+        color: #C2C4CC;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        margin-top: -65px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    #botonCR:hover{
+        color: #90E6F3;
+    }
+    #footer h3 {
+        margin: auto;
+        text-align: center;
+    }
+}

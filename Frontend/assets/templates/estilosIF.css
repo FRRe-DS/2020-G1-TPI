@@ -72,6 +72,9 @@ option {
 .margen{
     margin-left: 20px;
 }
+.margen2 {
+    margin-left: 10px;
+}
 #fechaAntigripal {
     margin-left: 100px;
     font-weight: normal;
@@ -159,4 +162,181 @@ option {
 }
 #botonUp{
     display: none;
+}
+
+
+@media handheld, screen and (max-width:599px) {
+
+    #formulario{
+        width: 90%;
+        margin: auto;
+        font-size: 21px;
+        margin-top: 20px;
+        height: auto;
+        padding: 15px;
+    }
+    #encabezado{
+        display: none;
+    }
+    
+    
+    /* titulo */
+    h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+    }
+    /* formulario*/
+    legend {
+        font-size: 23px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: #213B9C;
+        font-weight: bold;
+    }
+    fieldset{
+        border-radius: 5px;
+        margin: 10px;
+        border-color:#213B9C;
+    }
+    input {
+        padding: 8px;
+        margin: 10px;
+        margin-left: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    input:hover{
+        box-shadow: 0 0 2px #333;
+    }
+    label {
+        margin: 10px;
+    }
+   
+
+    /* datos personales */
+    #apellido, #nombre, #provincia, #localidad, #correo {
+        width: 250px;
+    }
+    #dni {
+        width: 100px;
+    }
+    #direccion {
+        width: 300px;
+    }
+    #CP, #edad {
+        width: 50px;
+    }
+    select option {
+        margin:2px;
+        font-size: 15px;
+        background-color: #eee;
+    }
+    option {
+        margin:2px;
+        font-size: 15px;
+        background-color: #eee;
+    }
+    #localidad, #sexo {
+        margin-left:10px;
+    }
+    
+    /* Antecedentes epidemiologicos */
+    .margen{
+        margin-left: 20px;
+    }
+    #fechaAntigripal {
+        margin-left: 100px;
+        font-weight: normal;
+    }
+    .negrita {
+        font-weight: bold;
+        margin-left: 20px;
+        margin-left: 10px;
+    }
+    .radio{
+        display: block;
+    }
+    #siNo, #presenta {
+        display: inline;
+        margin-left: 0px;
+    }
+    #viajoEn {
+        margin-left: 30px;
+    }
+    /* Enfermedades previas*/
+    #enfermedades1 {
+        width: 100%;
+        padding:2%;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+    #enfermedades2 {
+        width: 100%;
+        padding:2%;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+    #enfermedades3 {
+        width: 94%;
+        padding:2%;
+        font-size: 15px;
+        margin-left: 5px;
+    }
+    #stextomas1 {
+        width: 95%;
+        padding:2%;
+        font-size: 15px;
+        height: auto;
+    }
+    #stextomas2 {
+        width: 100%;
+        padding:2%;
+        font-size: 15px;
+        height: auto;
+    }
+    #MalestarEnGenerl, #Tos, #Vomitos {
+        margin-left: 5px;
+    }
+    #stextomas3 {
+        width: 95%;
+        padding:2%;
+        font-size: 15px;
+        height: auto;
+    }
+    #stextomas4 {
+        width: 97%;
+        padding:2%;
+        font-size: 15px;
+        height: auto;
+    }
+    #otraEnfermedad, #otroSintoma{
+        width: 250px;
+    }
+    #gramosAlNacer, #semanasPrematernidad {
+        width:70px;
+        padding: 0%;
+    }
+    #boton {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #botonEnviar {
+        padding: 10px;
+        font-size: 18px;
+        margin: 0px;
+        background-color: #213B9C;
+        color: #C2C4CC;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        margin-top: 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        border:none;
+    }
+    #botonEnviar:hover{
+        color: #90E6F3;
+    }
+    #botonUp{
+        display: none;
+    }
+
 }

@@ -30,12 +30,12 @@
 
     <div id="caja" @submit.prevent="isModalActive=true">
         <form action="">
-            <h1 class="title is-4">Por favor, ingrese los siguientes datos:</h1>
+            <h1 class="title is-4" id="tituloCR">Por favor, ingrese los siguientes datos:</h1>
             <br/>
             <div id="caja2">
                 <label id="titulo">DNI:</label>
                 <input type="int" placeholder="DNI" name="dni" id="dni">
-                <br/>
+                
                 <label id="titulo">Codigo de validación:</label>
                 <input type="text" placeholder="Código" name="codigo" id="codigo">
                 <br/>
@@ -50,7 +50,7 @@
         <div class="modal-background" @click="isModalActive=false"></div>
         <div class="modal-content">
             <div id="resultado">
-                <br/>
+                
                 <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
             </div>  
         </div>
