@@ -657,16 +657,17 @@ img {
 /* Informes diarios */
 #informesDiarios {
     width: 100%;
-    height: 700px;
+    height: auto;
     margin:auto;
+    text-align: center;
 }
 #titulo3{
-    font-size: 50px;
+    font-size: 35px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     color:#213B9C;
     text-shadow: 2px 2px hsl(0, 0%, 86%);
-    margin-top: 70px;
+    margin-top: 30px;
 }
 #app {
     margin:auto;
@@ -680,9 +681,21 @@ img {
     display: block;  
     border: none;
 }
+#prueba {
+    width: 100%;
+}
+.table {
+    padding: 5px;
+    width: 100%;
+}
 th {
-    font-size: 18px;
-    padding: 8px;
+    font-size: 9px;
+    padding: 2px;
+    text-decoration: none;
+    font-weight: normal;
+}
+td {
+    font-size:8px ;
 }
 tr:nth-child(odd) {
     background-color: hsl(0, 0%, 86%);
@@ -704,9 +717,14 @@ tr:nth-child(odd) {
     box-shadow: 0 0 10px #333;
 }
 .grid3 h4 {
-    font-size: 22px;
-    font-family: Csambria;
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+}
+h4 {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .grid3 h5 {
     font-size: 14px;
