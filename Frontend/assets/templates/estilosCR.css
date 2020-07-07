@@ -155,6 +155,8 @@ input {
         font-family: Arial, Helvetica, sans-serif;
         background-color: hsl(0, 0%, 86%);
         font-size: 22px;
+        margin: auto;
+        align-items: center;
     }
     .botonC {
         display: grid;
@@ -193,12 +195,18 @@ input {
         align-items: center;
     }
     #resultado {
-        width: 70%;
+        width: 80%;
         height: auto;
         background-color: hsl(0, 0%, 86%);
         border-radius: 15px;
         margin: auto;
-        padding: 15px;
+        padding: 10px;
+        text-align: center;
+        align-items: center;
+    }
+    .modal {
+        width: 100%;
+        margin: auto;
     }
     #botonUp{
         display: none;
@@ -239,5 +247,6 @@ input {
     #footer h3 {
         margin: auto;
         text-align: center;
+        padding: 0px;
     }
 }

@@ -510,6 +510,7 @@ hr {
     margin-top: 500px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
 }
 #titulo1 {
     font-size: 30px;
@@ -535,13 +536,13 @@ hr {
     padding: 10px;
     font-family: Cambria;
     font-size: 17px;
-    width: 95%;
+    width: 90%;
     text-align: left;
     margin-bottom: 10px;
 }
 #fases1 h3 {
     font-size: 12px;
-    width: 85%;
+    width: 90%;
 }
 #fases2 {
     width: 100%;
@@ -556,13 +557,13 @@ hr {
     padding: 10px;
     font-family: Cambria;
     font-size: 17px;
-    width: 95%;
+    width: 90%;
     text-align: left;
     margin-bottom: 10px;
 }
 #fases2 h3 {
     font-size: 12px;
-    width: 85%;
+    width: 90%;
 }
 #fase1, #fase2, #fase3, #fase4, #fase5 {
     width: 100%;
@@ -575,6 +576,7 @@ hr {
     margin:auto;
     height: auto;
     margin-top: -190px;
+    margin-bottom: 30px;
 }
 #titulo2{
     font-size: 35px;
@@ -759,6 +761,7 @@ tr:nth-child(odd) {
     color:#213B9C;
     text-shadow: 2px 2px hsl(0, 0%, 86%);
     margin-top: 30px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -770,7 +773,10 @@ h2 {
     font-size: 16px;
     text-align: justify;
     width: 85%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 h3 {
     border-radius: 10px;
@@ -826,6 +832,7 @@ h3 {
     font-size: 24px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: hsl(0, 0%, 86%);
+    padding: 10px;
 }
 #botonLC {
     padding: 10px;
@@ -842,11 +849,16 @@ h3 {
 #footer h3 {
     text-align: center;
     margin-bottom: 40px;
+    margin: auto;
 }
 #footer a {
     text-decoration: none;
     color: #000;
     font-size: 18px;
+    padding: 10px;
+}
+#footer h5 {
+    padding: 8px;
 }
 
 #botonUp{
