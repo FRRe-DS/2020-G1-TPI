@@ -657,7 +657,7 @@ img {
 /* Informes diarios */
 #informesDiarios {
     width: 100%;
-    height: 700px;
+    height: auto;
     margin:auto;
 }
 #titulo3{
@@ -681,8 +681,9 @@ img {
     border: none;
 }
 th {
-    font-size: 18px;
-    padding: 8px;
+    font-size: 12px;
+    padding: 3px;
+    text-decoration: none;
 }
 tr:nth-child(odd) {
     background-color: hsl(0, 0%, 86%);

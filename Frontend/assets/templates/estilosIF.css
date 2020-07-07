@@ -170,7 +170,7 @@ option {
     #formulario{
         width: 90%;
         margin: auto;
-        font-size: 21px;
+        font-size: 18px;
         margin-top: 20px;
         height: auto;
         padding: 15px;
@@ -178,7 +178,10 @@ option {
     #encabezado{
         display: none;
     }
-    
+    #titulo1 {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
     
     /* titulo */
     h1 {
@@ -196,6 +199,7 @@ option {
         border-radius: 5px;
         margin: 10px;
         border-color:#213B9C;
+        height: auto;
     }
     input {
         padding: 8px;
@@ -222,6 +226,15 @@ option {
     #direccion {
         width: 300px;
     }
+    #fn {
+        width: 230px;
+    }
+    #sexo {
+        width: 180px;
+    }
+    #sexo1 {
+        text-align: left;
+    }
     #CP, #edad {
         width: 50px;
     }
@@ -238,6 +251,9 @@ option {
     #localidad, #sexo {
         margin-left:10px;
     }
+    #localidad {
+        margin-bottom: 10px;
+    }
     
     /* Antecedentes epidemiologicos */
     .margen{
@@ -250,7 +266,6 @@ option {
     .negrita {
         font-weight: bold;
         margin-left: 20px;
-        margin-left: 10px;
     }
     .radio{
         display: block;
@@ -259,8 +274,20 @@ option {
         display: inline;
         margin-left: 0px;
     }
-    #viajoEn {
-        margin-left: 30px;
+    #vac1, #vac2 {
+        width: 130px;
+    }
+    #pais {
+        width: 240px;
+    }
+    #fchI {
+        width:220px;
+    }
+    #compañia {
+        width: 150px;
+    }
+    #piso, #dpto {
+        width: 25px;
     }
     /* Enfermedades previas*/
     #enfermedades1 {

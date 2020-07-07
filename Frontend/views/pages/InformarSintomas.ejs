@@ -22,9 +22,9 @@
                     <div class="field">
                         <div class="control">
                             <label class="label">Fecha de nacimiento</label>
-                            <input v-model="FechaNacimiento" class="input" type="date" value="fechaNacimiento" required>
+                            <input id="fn" v-model="FechaNacimiento" class="input" type="date" value="fechaNacimiento" required>
 
-                            <label class="label" for="">Sexo</label>
+                            <label id="sexo1" class="label" for="">Sexo</label>
                             <select v-model='Sexo' id="sexo" required>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
@@ -40,7 +40,7 @@
                     <div class="field">    
                         <div class="control">
                             <label class="label">Correo electronico</label>
-                            <input v-model="Email" class="input" type="email" placeholder="ejemplo@ejemplo.com" required>
+                            <input v-model="Email" size="30" class="input" type="email" placeholder="ejemplo@ejemplo.com" required>
                         </div>
                     </div>
                 </div>
@@ -48,13 +48,13 @@
                 <label class="negrita">Dirección</label>
                 <br>
                     <label class="label">Calle</label>
-                    <input v-model="Calle" class="input" size="17" type="text" placeholder="Calle" required>
+                    <input v-model="Calle" class="input" size="19" type="text" placeholder="Calle" required>
                     <label class="label">Número</label>
-                    <input v-model="NroDeCalle" class="input" size="8" type="text" placeholder="Número calle" required>
+                    <input v-model="NroDeCalle" class="input" size="15" type="text" placeholder="Número calle" required>
                     <label class="label">Depto</label>
-                    <input v-model="Dpto" class="input" size="2" type="text" placeholder="-">
+                    <input v-model="Dpto" class="input" size="3" type="text" placeholder="-">
                     <label class="label">Piso</label>
-                    <input v-model="Piso" class="input" size="2" type="text" placeholder="-">
+                    <input v-model="Piso" class="input" size="3" type="text" placeholder="-">
                     <br>
 
                 <div class="field">
@@ -74,7 +74,6 @@
 
                     <label class="negrita">Ocupaciones</label>
                     <br/>
-                    <br/>
                     <div class="margen">
                         <div class="field">
                             <div class="control">
@@ -93,12 +92,12 @@
                         <div class="field">
                             <div class="control">
                                 <input v-model="TieneVacunaAntiGripal" class="checkbox" type="checkbox" name="TieneVacunaAntiGripal" value="TieneVacunaAntiGripal"/> Antigripal
-                                
+                                <br/>
                                 <label id="FechaDeVacunacion">Fecha: </label>
-                                <input v-model="FechaDeVacunacion" class="input" type="date" value="FechaDeVacunacion" :disabled="TieneVacunaAntiGripal === false">
+                                <input v-model="FechaDeVacunacion" id="vac1" class="input" type="date" value="FechaDeVacunacion" :disabled="TieneVacunaAntiGripal === false">
                                 
                                 <label id="FechaDeVencimientoDeLaVacuna">Vencimiento: </label>
-                                <input v-model="FechaDeVencimientoDeLaVacuna" class="input" type="date" value="FechaDeVencimientoDeLaVacuna" :disabled="TieneVacunaAntiGripal === false">
+                                <input v-model="FechaDeVencimientoDeLaVacuna" id="vac2" class="input" type="date" value="FechaDeVencimientoDeLaVacuna" :disabled="TieneVacunaAntiGripal === false">
                                 
                             </div>
                         </div>     
@@ -116,10 +115,10 @@
                                 <br>
                                 <p>¿Dónde?</p>
                                 <label class="label">Pais donde estuvo: </label>
-                                <input v-model="PaisEnQueEstuvo" class="input" type="text" placeholder="País" :disabled="SiNo === 'false'">
+                                <input v-model="PaisEnQueEstuvo" id="pais" class="input" type="text" placeholder="País" :disabled="SiNo === 'false'">
                                 
                                 <label class="label">Ciudad: </label>
-                                <input v-model="CiudadDelPaisEnQueEstuvo" class="input" type="text" placeholder="Ciudad" :disabled="SiNo === 'false'">
+                                <input v-model="CiudadDelPaisEnQueEstuvo" id="ciudad" class="input" type="text" placeholder="Ciudad" :disabled="SiNo === 'false'">
                                 
                                 <br>
                                 <label id="fechaPaisDesde">Desde</label>
@@ -132,20 +131,25 @@
                         </div>
                     </div>
                     
-                    <div class="margen2"  target="_blank">
-                        <label>Viajó en:</label>
-                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="1" :disabled="SiNo === 'false'"> Avión
-                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="2" :disabled="SiNo === 'false'"> Barco
-                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="3" :disabled="SiNo === 'false'"> Omnibus
-                        <input id="viajoEn" v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="0" :disabled="SiNo === 'false'"> Otro
+                    <label class="negrita">Viajó en:</label>
+                    <div class="margen" target="_blank">  
+                        <div class="field">
+                            <div class="control">
+                                <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="1" :disabled="SiNo === 'false'"> Avión
+                                <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="2" :disabled="SiNo === 'false'"> Barco
+                                <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="3" :disabled="SiNo === 'false'"> Omnibus
+                                <input v-model="opcionViaje" class="radio" type="radio" name="opcionViaje" value="0" :disabled="SiNo === 'false'"> Otro
+                           
+                            </div> 
+                        </div>
                         
                     </div>
                     <div class="margen2">
                         <label>Fecha de ingreso al País:</label>
-                        <input v-model="fechaIngreso" class="input" type="date" value="fechaIngreso" :disabled="SiNo === 'false'">
+                        <input v-model="fechaIngreso" id="fchI" class="input" type="date" value="fechaIngreso" :disabled="SiNo === 'false'">
                         
                         <label>Compañia:</label>
-                        <input v-model="compania" class="input" type="text" placeholder="Compañia" :disabled="SiNo === 'false'">
+                        <input v-model="compania" id="compañia" class="input" type="text" placeholder="Compañia" :disabled="SiNo === 'false'">
                         
                     </div>
 
@@ -157,13 +161,13 @@
                                 <input id="siNo" v-model="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" class="radio" type="radio" name="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas" value="false"> No
                             </div>
                         <label class="label">Calle</label>
-                        <input v-model="Calle1" class="input" size="10" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Calle1" class="input" size="19" type="text" placeholder="Calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Número</label>
-                        <input v-model="NroDeCalle1" class="input" size="2" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="NroDeCalle1" class="input" size="15" type="text" placeholder="Número calle" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Depto</label>
-                        <input v-model="Dpto1" class="input" size="2" type="text" placeholder="-" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Dpto1" class="input" id="piso" size="3" type="text" placeholder="-" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <label class="label">Piso</label>
-                        <input v-model="Piso1" class="input" size="2" type="text" placeholder="-" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
+                        <input v-model="Piso1" class="input" id="dpto" size="3" type="text" placeholder="-" :disabled="ResidioEnLugarAjenoASuDomicilioDentroDelPaisPrevioASintomas === 'false'">
                         <br>
 
                         <label class="label">Localidad</label>
