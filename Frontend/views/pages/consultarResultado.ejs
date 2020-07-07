@@ -8,7 +8,8 @@
             <div id="caja2">
                 <label id="titulo">DNI:</label>
                 <input v-model="Dni" class="input" type="text" placeholder="DNI" required>
-
+                <br/>
+                <br/>
                 <label id="titulo">Codigo de validación:</label>
                 <input v-model="CodigoValidacion" class="input" type="text" placeholder="CodigoValidacion" required>
                 <br/>
@@ -25,7 +26,6 @@
         <div class="modal-background" @click="isModalActive=false"></div>
         <div class="modal-content">
             <div id="resultado">
-<<<<<<< HEAD
                 <h2>Su información fue analizada correctamente</h2>
                 <br>
                 <h3>Informe del médico: {{respuesta}}</h3>
@@ -34,12 +34,10 @@
                     <button class="botonesModal" type="submit" @click="isModalActive=false">Volver a consultar</button>
                     <button class="botonesModal" type="submit" href="/">Volver al inicio</button>
                 </div>
-                
-            </div>
-=======
+                <!--
                 <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
-            </div>  
->>>>>>> 783aad09016a7d236885e69952fea13b933257fe
+                -->
+            </div> 
         </div>
         
     </div>
