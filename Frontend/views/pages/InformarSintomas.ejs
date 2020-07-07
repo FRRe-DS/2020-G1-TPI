@@ -63,7 +63,7 @@
 
                     <label class="label">Localidad</label>
                     <select v-model="Localidad" class="form-control" id="localidad" required>
-                        <option v-for="(Localidad,index) in localidades">{{localidades[index].nombre}}</option>
+                        <option v-for="(Localidad,index1) in localidades">{{localidades[index1].nombre}}</option>
                     </select>
                     </div>
                 </div>
@@ -299,6 +299,7 @@
         el: '#app',
         data(){
             return{
+                isModalActive:false,
                 index:'',
                 Nombre:'',
                 Apellido:'',
@@ -584,7 +585,7 @@
                 axios.post(`http://40.118.242.96:12600/api/FormularioParaAnalisis/Add`,dataPost,config)
                 .then((response)=>{
                     this.codigoRespuesta = response.data
-                    alert('Su codigo de validación es: '+this.codigoRespuesta+'. Por favor, guarde su codigo. Podrá consultar su resultado en los proximos tres días habiles en la sección "Consultar Resultado". Muchas gracias, Gobierno de la provincia del Chaco.')
+                    alert('Su codigo de validación es: '+this.codigoRespuesta+'. Por favor, guarde su codigo.\nPodrá consultar su resultado en los proximos tres días habiles en la sección "Consultar Resultado".\nMuchas gracias, Gobierno de la provincia del Chaco.')
                 })
                 .catch((err)=>{
                     console.log(err)

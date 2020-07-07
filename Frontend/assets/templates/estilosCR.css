@@ -26,6 +26,10 @@ h2 {
     background-color: hsl(0, 0%, 86%);
     font-size: 22px;
 }
+#msjErr{
+    color:red;
+    font-size: 80%;
+}
 .botonC {
     display: grid;
     margin:auto;
@@ -61,6 +65,7 @@ h2 {
     border:none;
     padding: 10px;
     margin: auto;
+    cursor: default;
 }
 .botones2 {
     width: 100px;
@@ -101,11 +106,6 @@ input {
     align-items: center;
 }
 #resultado {
-<<<<<<< HEAD
-=======
-    width: 550px;
-    height: auto;
->>>>>>> 783aad09016a7d236885e69952fea13b933257fe
     background-color: hsl(0, 0%, 86%);
     border-radius: 15px;
     margin: auto;
@@ -228,11 +228,8 @@ input {
         border-radius: 15px;
         margin: auto;
         padding: 20px;
-<<<<<<< HEAD
         text-align: center;
         align-items: center;
-=======
->>>>>>> 783aad09016a7d236885e69952fea13b933257fe
     }
     .modal {
         width: 100%;
