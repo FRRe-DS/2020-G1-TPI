@@ -44,6 +44,23 @@ h2 {
     border:none;
     margin: auto;
 }
+#marcoBoton{
+    display: flex;
+    justify-content: center;
+}
+.botonesModal {
+    height: 40px;
+    font-size: 18px;
+    background-color: #213B9C;
+    color: #C2C4CC;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border:none;
+    padding: 10px;
+    margin: auto;
+}
 .botones2 {
     width: 100px;
     height: 40px;
@@ -80,8 +97,6 @@ input {
     align-items: center;
 }
 #resultado {
-    width: 550px;
-    height: 150px;
     background-color: hsl(0, 0%, 86%);
     border-radius: 15px;
     margin: auto;
@@ -200,7 +215,7 @@ input {
         background-color: hsl(0, 0%, 86%);
         border-radius: 15px;
         margin: auto;
-        padding: 10px;
+        padding: 20px;
         text-align: center;
         align-items: center;
     }
@@ -210,6 +225,19 @@ input {
     }
     #botonUp{
         display: none;
+    }
+    .botonesModal {
+        height: 40px;
+        font-size: 95%;
+        background-color: #213B9C;
+        color: #C2C4CC;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        border:none;
+        padding: 1%;
+        margin: auto;
     }
     #botonRS{
         padding: 3px;

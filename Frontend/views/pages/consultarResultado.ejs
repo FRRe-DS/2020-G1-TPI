@@ -1,60 +1,60 @@
 <link rel="stylesheet" href="/templates/estilosCR.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 <div id='app'>
-    
-    <!--
-        <! – en caso de que no haya completado el formulario — >
-        
-                <h2>El DNI o el código de validación ingresados no son correctos. Por favor, intente nuevamente.</h2>
-      
-
-        <! – en caso de que el paciente haya completado el formulario — >
-       
-                <h2>Su información está siendo analizada. Por favor, consulte más tarde.</h2>
-        
-                <h2>La evaluación de su formulario corresponde a una persona sospechosa de Covid-19 y por lo tanto, deberá acercarse al Centro Hospitalario para poder realizarle el hisopado.</h2>
-          
-                <h2>La evaluación de su formulario no corresponde a una persona sospechosa de Covid-19.</h2>
-       
-        
-        <! – en caso de que el paciente haya completado el formulario y se haya realizado el hisopado en un centro hospitalario — >
-           
-                <h2>El análisis de su hisopado está siendo analizado. Por favor, consulte más tarde.</h2>
-          
-                <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
-      
-                <h2>El resultado de su hisopado dio negativo y usted no contiene Covid-19.</h2>
-        
-       
-    -->
-
-    <div id="caja" @submit.prevent="isModalActive=true">
+    <div id="caja" @submit.prevent="consultarResultado">
         <form action="">
             <h1 class="title is-4" id="tituloCR">Por favor, ingrese los siguientes datos:</h1>
             <br/>
             <div id="caja2">
                 <label id="titulo">DNI:</label>
-                <input type="int" placeholder="DNI" name="dni" id="dni">
-                
+                <input v-model="Dni" class="input" type="text" placeholder="DNI" required>
+
                 <label id="titulo">Codigo de validación:</label>
-                <input type="text" placeholder="Código" name="codigo" id="codigo">
+                <input v-model="CodigoValidacion" class="input" type="text" placeholder="CodigoValidacion" required>
                 <br/>
+                <br>
+                <br>
                 <div class="botonC">
-                    <button class="botones" type="submit" @click="isModalActive=true">Consultar</button>
+                    <button class="botones" type="submit" @click="consultarResultado">Consultar</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="modal" :class="{'is-active': isModalActive}">
+    <div v-if="estado == 1" class="modal" :class="{'is-active': isModalActive}">
         <div class="modal-background" @click="isModalActive=false"></div>
         <div class="modal-content">
             <div id="resultado">
+                <h2>Su información fue analizada correctamente</h2>
+                <br>
+                <h3>Informe del médico: {{respuesta}}</h3>
+                <br>
+                <div id="marcoBoton">
+                    <button class="botonesModal" type="submit" @click="isModalActive=false">Volver a consultar</button>
+                    <button class="botonesModal" type="submit" href="/">Volver al inicio</button>
+                </div>
                 
-                <h2>El resultado de su hisopado dio positivo y usted contiene Covid-19. Por favor, haga reposo de manera aislada a cualquier persona durante 14 días, y lo antes posible comuniquese al: <b>0800 444 0829</b>.</h2>
-            </div>  
+            </div>
         </div>
-        <button type="submit" @click="isModalActive=false"></button>
+        
+    </div>
+    <div v-else class="modal" :class="{'is-active': isModalActive}">
+        <div class="modal-background" @click="isModalActive=false"></div>
+        <div class="modal-content">
+            <div id="resultado">
+                <h2>Su información está siendo analizada. Por favor, consulte más tarde.</h2>
+                <br>
+                <h3>Le recordamos que su formulario será contestado a partir de los 3 días habiles de haber enviado el formulario.</h3>
+                <br>
+                <div id="marcoBoton">
+                    <button class="botonesModal" type="submit" @click="isModalActive=false,Dni='',CodigoValidacion=''">Volver a consultar</button>
+                    <button class="botonesModal" v-on:click="inicio">Volver al inicio</button>
+                </div>
+            </div>
+            
+        </div>
+        
+
     </div>
 </div>
 
@@ -64,9 +64,39 @@
         data: function(){
             return{
                 isModalActive: false,
+                Dni:'',
+                CodigoValidacion:'',
+                estado:0,
+                respuesta:'',
             }
         },
+        created: function(){
+            console.log('Iniciado')
+        },
         methods:{
+            inicio(){
+                window.location.href('localhost:1337/')
+            },
+            consultarResultado(){
+                axios.get(`http://40.118.242.96:12600/api/FormularioParaAnalisis/GetFormularioByDNIyId/`+this.Dni+`,`+this.CodigoValidacion)
+                .then((response)=>{
+                    console.log('Respuesta correcta')
+                    if (response.data.estadoDelFormulario === 1 || response.data.estadoDelFormulario === 0 ){
+                        this.estado=0
+                        this.isModalActive=true
+                        console.log('Formulario no contestado')
+                    }else{
+                        this.estado=1
+                        this.respuesta=response.data.respuestaMedica
+                        this.isModalActive=true
+                        console.log('Formulario contestado')
+                        console.log(response.data.respuestaMedica)
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+            }
             
         }
     })
