@@ -182,6 +182,11 @@ input {
         padding: 30px;
         align-items: center;
     }
+    #resultado h3 {
+        margin: auto;
+        font-size: 13px;
+        width: 90%;
+    }
     #resultado h2 {
         margin: auto;
     }
@@ -240,7 +245,7 @@ input {
         display: none;
     }
     .botonesModal {
-        height: 40px;
+        height: 35px;
         font-size: 95%;
         background-color: #213B9C;
         color: #C2C4CC;
@@ -249,8 +254,9 @@ input {
         text-decoration: none;
         border-radius: 5px;
         border:none;
-        padding: 1%;
+        padding: 5px;
         margin: auto;
+        width: auto;
     }
     #botonRS{
         padding: 3px;
